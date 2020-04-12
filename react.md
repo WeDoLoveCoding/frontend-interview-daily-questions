@@ -1,6 +1,49 @@
 # React 面试题
 
 ## 了解 redux 么，说一下 redux 吧
+Redux 本身是个状态管理库,核心或者说目的一句话就能概括, 清晰的描述应用的状态。
+
+Redux 核心和原则
+
+* 这个应用的状态是一个唯一的状态树
+* 状态是只读的, 只能通过 action 来触发修改, 其实实际修改状态的是 reducer
+* 修改状态只能通过纯函数
+
+Redux 中的概念
+
+1.reducer
+
+reducer 就是实际改变 state 的函数, 在 redux 中, 也只有 reducer 能够改变 state.
+根据 redux 的原则, 整个应用只有一个唯一的状态树, 这样, 理论上只要一个 reducer 就够了. 但是, 实际编码时, 如果应用稍具规模, 只有一个 reducer 文件, 显然不利于分模块合作开发, 也不利于代码维护.
+所以, reduer 一般是按模块, 或者根据你所使用的框架来组织, 会分散在多个文件夹中. 这时, 可以通过 redux 提供的 API combineReducers 来合并多个 reducer, 形成一个唯一的状态树.
+reducer 的使用只要注意 2 点:
+
+1、必须是纯函数2、多个 reducer 文件时, 确保每个 reducer 处理不同的 action, 否则可能会出现后面的 reducer 被覆盖的情况
+
+2.state
+
+state 或者说是 store, 其实就是整个应用的状态. 
+
+3.action
+
+redux 中的 action 其实就是一个 包含 type 字段的plain object. type 字段决定了要执行哪个 reducer, 其他字段作为 reducer 的参数.
+
+4.action creator
+
+action creator 本质是一个函数, 返回值是一个满足 action 的定义的 plain object. 使用 action creator 的目的就是简化 action 的定义
+
+5.dispath
+
+ view层通过action来改变store从而改变当前的state，但是action只是一个对象而已,store.dispatch() 就是 view 发出 Action对象的唯一方法。 
+dispatch的中文意思就是派遣、发送的意思。 即将action发送到store.
+
+6.subscribe 
+
+ store允许使用 store.subscripbe 方法设置监听函数，一旦 state 发生变化， 就自动执行这个函数。  
+ 
+7.middleware
+
+redux 的 middleware 发生在 dispatching an action 和 reaches the reducer 之间. 在这个时间点, 除了可以实现异步操作, 还可以实现 logging等等.
 
 ## 描述事件在React中的处理方式
   React 元素的事件处理和 DOM 元素的很相似，但是有一点语法上的不同：
