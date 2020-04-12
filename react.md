@@ -1,5 +1,7 @@
 # React 面试题
 
+## 了解 redux 么，说一下 redux 吧
+
 ## 描述事件在React中的处理方式
   React 元素的事件处理和 DOM 元素的很相似，但是有一点语法上的不同：
   * React 事件的命名采用小驼峰式（camelCase），而不是纯小写。
