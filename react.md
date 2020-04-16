@@ -1,5 +1,7 @@
 # React 面试题
 
+## 在React中创建动画有哪些方式
+
 ## React为什么要搞Hooks，React Hooks帮我们解决了哪些问题
 React Hooks是React 16.8的新增特性。它可以让你在不编写class的情况下使用state及其他React的特性（如：可以让你在函数组件里“钩入” React state 及生命周期等特性的函数。Hook 不能在 class 组件中使用 —— 这使得你不使用 class 也能使用 React）。
 Hooks是一种更简单的方式，用于封装用户界面中的有状态行为和副作用。
