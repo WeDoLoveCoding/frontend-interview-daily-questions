@@ -1,6 +1,9 @@
 # React 面试题
 
+## 你对immutable有了解吗？它有什么作用？
+
 ## 在React中创建动画有哪些方式
+创建React动画有以下几种：1.基于定时器或requestAnimationFrame的间隔动画；使用定时器可能会有掉帧问题，而使用requestAnimationFrame则性能较好，完全使用js，不依赖css，帧数跟屏幕刷新率一致，页面运行到后台会自动暂停提高性能。2.基于css3中的animation和transition简单动画；有较高的性能，代码量少，但是只能依赖于css效果，对于复杂动画比较难实现跟控制。3.React动画插件CssTransitionGroup；性能比较好，但限定于入场跟出场场景。4.其他第三方动画库。
 
 ## React为什么要搞Hooks，React Hooks帮我们解决了哪些问题
 React Hooks是React 16.8的新增特性。它可以让你在不编写class的情况下使用state及其他React的特性（如：可以让你在函数组件里“钩入” React state 及生命周期等特性的函数。Hook 不能在 class 组件中使用 —— 这使得你不使用 class 也能使用 React）。
