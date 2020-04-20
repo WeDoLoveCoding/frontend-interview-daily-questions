@@ -131,25 +131,94 @@ Redux 本身是个状态管理库,核心或者说目的一句话就能概括, �
 
 Redux 核心和原则
 
-* 这个应用的状态是一个唯一的状态树
-* 状态是只读的, 只能通过 action 来触发修改, 其实实际修改状态的是 reducer
-* 修改状态只能通过纯函数
-
+这个应用的状态是一个唯一的状态树
+状态是只读的, 只能通过 action 来触发修改, 其实实际修改状态的是 reducer
+修改状态只能通过纯函数
 Redux 中的概念
 
 1.reducer
 
-reducer 就是实际改变 state 的函数, 在 redux 中, 也只有 reducer 能够改变 state.
-根据 redux 的原则, 整个应用只有一个唯一的状态树, 这样, 理论上只要一个 reducer 就够了. 但是, 实际编码时, 如果应用稍具规模, 只有一个 reducer 文件, 显然不利于分模块合作开发, 也不利于代码维护.
-所以, reduer 一般是按模块, 或者根据你所使用的框架来组织, 会分散在多个文件夹中. 这时, 可以通过 redux 提供的 API combineReducers 来合并多个 reducer, 形成一个唯一的状态树.
-reducer 的使用只要注意 2 点:
+reducer 就是实际改变 state 的函数, 在 redux 中, 也只有 reducer 能够改变 state. 根据 redux 的原则, 整个应用只有一个唯一的状态树, 这样, 理论上只要一个 reducer 就够了. 但是, 实际编码时, 如果应用稍具规模, 只有一个 reducer 文件, 显然不利于分模块合作开发, 也不利于代码维护. 所以, reduer 一般是按模块, 或者根据你所使用的框架来组织, 会分散在多个文件夹中. 这时, 可以通过 redux 提供的 API combineReducers 来合并多个 reducer, 形成一个唯一的状态树. reducer 的使用只要注意 2 点:
 
 1、必须是纯函数2、多个 reducer 文件时, 确保每个 reducer 处理不同的 action, 否则可能会出现后面的 reducer 被覆盖的情况
 
 2.state
 
-state 或者说是 store, 其实就是整个应用的状态. 
+state 或者说是 store, 其实就是整个应用的状态.
 
 3.action
 
-redux 中的 action 其实就是一个 包含 type 字段的plain object. type 字段决定了要执行哪个 reducer, 其他字段作为 reducer 的
+redux 中的 action 其实就是一个 包含 type 字段的plain object. type 字段决定了要执行哪个 reducer, 其他字段作为 reducer 的参数.
+
+4.action creator
+
+action creator 本质是一个函数, 返回值是一个满足 action 的定义的 plain object. 使用 action creator 的目的就是简化 action 的定义
+
+5.dispath
+
+view层通过action来改变store从而改变当前的state，但是action只是一个对象而已,store.dispatch() 就是 view 发出 Action对象的唯一方法。 dispatch的中文意思就是派遣、发送的意思。 即将action发送到store.
+
+6.subscribe
+
+store允许使用 store.subscripbe 方法设置监听函数，一旦 state 发生变化， 就自动执行这个函数。
+
+7.middleware
+
+redux 的 middleware 发生在 dispatching an action 和 reaches the reducer 之间. 在这个时间点, 除了可以实现异步操作, 还可以实现 logging等等.
+
+## 描述事件在React中的处理方式
+React 元素的事件处理和 DOM 元素的很相似，但是有一点语法上的不同：
+
+React 事件的命名采用小驼峰式（camelCase），而不是纯小写。
+使用 JSX 语法时你需要传入一个函数作为事件处理函数，而不是一个字符串。 在 React 中另一个不同点是你不能通过返回 false 的方式阻止默认行为。你必须显式的使用 preventDefault 。
+在React中的event是一个合成事件，React 根据 W3C 规范来定义这些合成事件，所以你不需要担心跨浏览器的兼容性问题。另外，在合成事件中只能阻止合成事件中的事件传播。合成事件中的stopPropagation无法阻止事件在真正元素上的传递，它只阻止合成事件中的事件流。
+
+在合成事件系统中，所有的事件都是绑定在document元素上，即，虽然我们在某个react元素上绑定了事件，但是，最后事件都委托给document统一触发。
+
+## context 是什么，有什么作用
+React Context提供了一种方式，能够让数据在组件树中传递，而不必一级一级手动传递。
+
+如果使用props或者state进行多级数据传递，则数据需要自顶下流经过每一级组件，无法跨级。而context是基于树形结构共享数据的方式，在某个节点组件开启提供context后，所有后代节点组件都可以获取到共享的数据。
+
+context的使用模式是生产消费模式，即生产组件提供数据，消费组件获取数据。
+
+可以通过Provider组件的value来传递数据，也可以通过调用react.createContext()来产生context，然后在Consumer组件获得context中的数据。一个生产组件可以和多个消费组件有对应关系。多个Provider组件也可以嵌套使用，里层的会覆盖外层的数据。
+
+## react 中 props 和 state 是什么，有什么区别
+在React中props和state都属于组件的数据，他们的改变都可能会触发组件的重新渲染。
+
+其中props 是组件对外的接口，对于传入的组件而言时可读的、不可变的，遵循单向数据流原则；state 是维护组件内部状态的， 是可变的。
+
+组件内可以引用其他组件，组件之间的引用形成了一个树状结构，如果下层组件需要使用上层组件的数据或方法，上层组件就可以通过下层组件的props属性进行传递，因此props是组件对外的接口，用于组件间的通信。props不能通过子组件自身的方法修改，只能通过父组件传递的回调函数在父组件进行修改。
+组件除了使用上层组件传递的数据外，自身也可能需要维护管理数据，这就是组件对内的接口state。修改组件内部状态需要使用setState或forceUpdate方法来改变。
+根据对外接口props 和对内接口state，组件计算出对应界面的UI。
+主要区别：
+
+state是可变的，是一组用于反映组件UI变化的状态集合；
+props对于使用它的组件来说，是只读的，要想修改props，只能通过该组件的父组件修改。
+在组件状态提升的场景中，父组件正是通过子组件的props, 传递给子组件其所需要的状态。
+没有state的组件叫做无状态组件，它接收props，只负责渲染，反之则叫做有状态组件。工作中应尽量使用无状态组件，增加代码的可维护性和复用性。
+## refs 的作用
+refs 用于获取到组件实例或者真实的DOM节点 常用于非受控组件
+
+不能在函数式组件上直接使用refs,函数式组件没有实例。但可以在函数式组件内部使用 ref，只要它指向一个 DOM 元素或者 class 组件。
+使用方式：
+
+直接指定ref = '' ref 是一个字符串，（不推荐）
+
+通过React.createRef()创建，创建的ref 有个 current属性，函数组件如果需要使用，需要使用React.forwardRef 转发一下ref。hoc组件传递ref也存在同样的问题，需要使用React.forwardRef 转发
+
+通过函数 ref={input => this.userName = input} ,获取值需要使用 this.userName.value
+
+## 展示组件和容器组件分别是什么及其应用
+展示组件又叫傻瓜组件，它负责UI展示，接收props，不感知数据是如何来的和变动的，传什么他就渲染什么。一般我们声明为无状态函数，但这不是绝对的，他也可以拥有自己的状态，但这些状态应该是与ui表现有关的。它通常包含一些DOM标记和样式。
+容器组件负责与store通信，获取，计算数据，更新状态。它描述组件是如何运行的，而不必关注展现。它实际上就是一个高阶组件，一般在react中，它使用connect方法包裹展示组件，内部与store通信，获取数据，监听数据变化，更新数据。
+好处是，解耦了界面与业务逻辑，提高了组件的复用性。比如展示组件由于不关心数据来源，那么可以被不同容器组件复用。同时，UI与业务逻辑分开，也方便维护，比如需要改样式，那么直接修改展示组件，数据变动，直接修改容器组件，互不影响。
+## 什么是HOC，在工作中如何应用
+HOC也就是高阶组件，来源于高阶函数的概念，借助AOP切片编程的思想及装饰器模式，它接收一个组件作为输入并返回一个新的组件。主要是用于逻辑复用，它不改变原有组件，但对其能力进行增强。提高了组件的抽象性、可维护性 但是注意，不能直接通过 Refs 访问到组件实例，因为ref对于组件来说是个特殊的属性，是由react单独处理的，因此需要使用React.forwardRef进行转发才行。
+
+HOC的实现分两种：
+
+属性代理 HOC 对传给 WrappedComponent 的 porps 进行操作。
+反向继承 HOC 扩展了 WrappedComponent。由于被动继承，它可以访问 WrappedComponent 的 state(状态)，props(属性)，组件生命周期方法和 render 方法。因此可以做渲染劫持。
+应用：比如react-redux中的connect就是一个HOC，它将store上的state和dispatch映射到组件的props中；再比如react-router-dom中的withRouter，它将路由属性传递到被包裹的非路由组件上，从而使得非路由组件也能访问和操作路由。再有就是日志记录型组件，在组件运行前、中、后对组件的一些状态的获取记录等。
