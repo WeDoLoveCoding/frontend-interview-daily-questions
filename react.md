@@ -1,6 +1,36 @@
 # React 面试题
 
 ## 你知道的React性能优化有哪些方法？
+1、react性能查看工具
+
+查看react加载组件时所耗费的时间的工具，在react 16版本之前我们可以使用React Perf来查看。也可以在chorme中先安装React Perf扩展，然后在入口文件或者redux的store.js中加入相应的代码即可。
+
+2、渲染角度优化
+
+（1）使用immutable.js
+（2）不要在render中修改状态
+（3）不在元素中使用内联样式，使用css隐藏节点而不是强制加载和卸载
+（4）使用SSR，可以在服务端生成html后返回到客户端，使客服端能快速看到完整渲染的页面
+（5）使用React.Fragment减少不必要DOM
+
+3、组件层面优化
+
+（1）组件懒加载。组件或UI库也可以使用动态导入的方式，只在用户使用到的时候加载。页面组件可以使用react-loadable。
+（2）使用pureComponent代替component，以达到一些没必要的渲染，或者在使用shouldComponent进行一个优化。
+（3）组件尽可能的拆分解耦，给列表类组件提供唯一不变的key，尽量不要使用下标作为key。
+（4）在constructor中使用bind来绑定this，而不在使用时绑定或减少使用箭头函数，因为constructor只在组件初始化时执行一次，而使用时绑定是每次render都会执行，箭头函数也是如此。
+（5）按需引入props，避免多余更新。
+
+4、数据获取层面优化
+
+（1）不要在componentWillMount中请求数据
+（2）redux与reselect结合使用，reselect动作的原理是只要相关的状态没有改变，那么就直接使用上一次的缓存结果。
+（3）结合业务场景使用localstorage、sessionstorage等缓存机制。
+
+5、代码打包编译层面优化
+
+（1）结合打包工具webpack、gulp等使用，一般常用webpack，利用webpack打包分离去重实现动态导入，减少重复性代码块。
+（2）webpack结合plugin+loader使用。
 
 ## 你对immutable有了解吗？它有什么作用？
 1、Immutable实现的原理
