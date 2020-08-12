@@ -6,3 +6,5 @@
 其他方面的能力面试
 
 [Other](./other.md)
+
+[Daily Question](./daily.md)
