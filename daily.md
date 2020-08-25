@@ -39,3 +39,5 @@
 # CSS伪类和伪元素区别
 
 # Vuex和localStorage的区别
+
+# 说一下事件循环机制(node 浏览器)
