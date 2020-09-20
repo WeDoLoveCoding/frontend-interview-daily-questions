@@ -91,3 +91,7 @@
 # 说一下mobx和redux有什么区别
 
 # CSS预处理器的概念
+
+# shouldComponentUpdate是为了解决什么问题
+
+# React里setState到底是异步还是同步
