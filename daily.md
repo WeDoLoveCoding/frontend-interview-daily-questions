@@ -95,3 +95,5 @@
 # shouldComponentUpdate是为了解决什么问题
 
 # React里setState到底是异步还是同步
+
+# react-redux的工作流程是什么
