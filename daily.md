@@ -111,3 +111,7 @@
 # CDN有哪些优化静态资源加载速度的机制
 
 # 说说你理解的node 中间层怎样做的请求合并转发
+
+# webpack做了什么？使用webpack构建是否有做一些自定义操作
+
+# webpack如何用localStorage离线缓存静态资源
