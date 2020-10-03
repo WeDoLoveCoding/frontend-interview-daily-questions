@@ -115,3 +115,7 @@
 # webpack做了什么？使用webpack构建是否有做一些自定义操作
 
 # webpack如何用localStorage离线缓存静态资源
+
+# 关于对 Vue 项目进行优化有哪些？
+
+# 说一下React.Component和React.PureComponent的区别
