@@ -119,3 +119,15 @@
 # 关于对 Vue 项目进行优化有哪些？
 
 # 说一下React.Component和React.PureComponent的区别
+
+# 使用import时，webpack对node_modules里的依赖会做什么
+
+# Redux和Vuex有什么区别,说一下它们的共同思想
+
+# 为什么组件中的 data 必须是一个函数，然后 return 一个对象，而 new Vue 实例里，data 可以直接是一个对象
+
+# 说一下mysql和mongodb的区别
+
+# 说一下你对React context的理解
+
+# webpack 里面的插件是如何实现的
