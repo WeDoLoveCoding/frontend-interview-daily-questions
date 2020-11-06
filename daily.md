@@ -185,3 +185,7 @@
 # React SSR实现过程
 
 # React SSR实现原理是什么,需要注意什么事项
+
+# 子组件可以直接改变父组件的数据么？说说你的理由？(vue)
+
+# 能说下 vue-router 中常用的 hash 和 history 路由模式实现原理吗
