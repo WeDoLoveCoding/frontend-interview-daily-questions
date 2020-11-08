@@ -191,3 +191,5 @@
 # 能说下 vue-router 中常用的 hash 和 history 路由模式实现原理吗
 
 # 实现数组去重
+
+# 描述下JS中Prototype的概念
