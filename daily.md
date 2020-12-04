@@ -318,3 +318,6 @@ description有所不同。keyswords列举出重要的关键词即可。
 白屏、闪烁
 
 # html布局元素的分类有哪些? 描述下每种布局元素的应用场景
+
+# componentWillReceiveProps的触发条件是什么
+
