@@ -322,3 +322,6 @@ description有所不同。keyswords列举出重要的关键词即可。
 # componentWillReceiveProps的触发条件是什么
 
 # javascript 代码中的"use strict"是什么意思?为什么使用它
+
+# 什么是 polyfill 
+# javascript 代码中的"use strict"是什么意思?为什么使用它
