@@ -349,3 +349,5 @@ description有所不同。keyswords列举出重要的关键词即可。
 # javascript 创建对象的几种方式
 
 # 说一下你所理解JavaScript中的作用域与变量声明提升
+
+# 内部属性[[Class]]是什么
