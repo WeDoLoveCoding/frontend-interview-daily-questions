@@ -405,3 +405,7 @@ description有所不同。keyswords列举出重要的关键词即可。
 - 第二种方式可以通过对象的 constructor 属性来判断，对象的 constructor 属性指向该对象的构造函数，但是这种方式不是很安全，因为 constructor 属性可以被改写
 
 - 第三种方式，如果需要判断的是某个内置的引用类型的话，可以使用Object.prototype.toString.call() 方法来打印对象的[[Class]] 属性来进行判断
+
+# 什么是DOM和BOM
+
+# CSS选择符有哪些
