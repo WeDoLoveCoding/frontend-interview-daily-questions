@@ -409,3 +409,5 @@ description有所不同。keyswords列举出重要的关键词即可。
 # 什么是DOM和BOM
 
 # CSS选择符有哪些
+
+# 标准模式与兼容模式各有什么区别
