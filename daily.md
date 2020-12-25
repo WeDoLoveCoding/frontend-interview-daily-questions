@@ -409,5 +409,26 @@ description有所不同。keyswords列举出重要的关键词即可。
 # 什么是DOM和BOM
 
 # CSS选择符有哪些
+id 选择器（#myid）
+
+类选择器（.myclassname）
+
+标签选择器（div,h1,p）
+
+后代选择器（h1 p）
+
+相邻后代选择器（子）选择器（ul>li）
+
+兄弟选择器（li~a）
+
+相邻兄弟选择器（li+a）
+
+属性选择器（a[rel="external"]）
+
+伪类选择器（a:hover,li:nth-child）
+
+伪元素选择器（::before、::after）
+
+通配符选择器（*）
 
 # 标准模式与兼容模式各有什么区别
