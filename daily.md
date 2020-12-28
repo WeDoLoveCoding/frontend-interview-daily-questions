@@ -432,3 +432,9 @@ id 选择器（#myid）
 通配符选择器（*）
 
 # 标准模式与兼容模式各有什么区别
+
+# css如何影响文档解析
+
+# 说一下你所了解的javascript的作用域链
+
+# DOMContentLoaded事件和Load事件的区别
