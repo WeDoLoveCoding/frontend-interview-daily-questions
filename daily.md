@@ -448,3 +448,5 @@ css加载不会阻塞DOM树的解析, 但会阻塞DOM树的渲染，也会阻塞
 # 说一下你所了解的javascript的作用域链
 
 # DOMContentLoaded事件和Load事件的区别
+
+# Symbol 值的强制类型转换
