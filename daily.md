@@ -452,3 +452,36 @@ css加载不会阻塞DOM树的解析, 但会阻塞DOM树的渲染，也会阻塞
 # Symbol 值的强制类型转换
 
 # HTML5有哪些新特性、移除了哪些元素
+
+HTML5新特性：
+
+拖放（Drag and drop）API
+
+语义化标签（header、nav、footer、section、article、aside）
+
+音频、视频（audio、video）API
+
+画布（canvas）API
+
+地理定位（Geolocation）API
+
+本地离线存储（localStorage），即长期存储数据，浏览器关闭后数据不丢失；会话存储（sessionStorage），即数据在浏览器关闭后自动删除
+
+表单控件（calender、date、time、url、email、search）
+
+新的技术（webworker、websocket）
+
+新的文档属性 document.visibilityState
+
+
+移除的元素：
+
+纯表现的元素：basefont、big、center、font、s、strike、tt、u
+
+对可用性产生负面影响的元素：frame、frameset、noframes
+
+# 说一下对DTD的理解
+
+DTD（ Document Type Definition 文档类型定义）是一组机器可读的规则，它们定义 XML或 HTML 的特定版本中所有允许元素及它们的属性和层次关系的定义。在解析网页时，浏览器将使用这些规则检查页面的有效性并且采取相应的措施。
+
+DTD 是对 HTML 文档的声明，还会影响浏览器的渲染模式（工作模式）。主要用来解决传输问题，它的存在可以使我们能够使用某个标准的DTD来 交换数据、检验数据。
