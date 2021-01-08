@@ -512,3 +512,5 @@ key是React用于追踪哪些列表中元素被修改、被添加或者被移除
 # 说一下你所理解的观察者模式
 
 # SGML、HTML、XML和XHTML的区别
+
+# 说一下你所了解的react-fiber
