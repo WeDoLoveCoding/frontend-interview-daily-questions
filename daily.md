@@ -488,6 +488,26 @@ DTD 是对 HTML 文档的声明，还会影响浏览器的渲染模式（工作�
 
 # 常见浏览器所用的内核
 
+- IE 浏览器内核：Trident 内核，也是俗称的 IE 内核
+
+- Chrome 浏览器内核：统称为 Chromium 内核或 Chrome 内核，以前是 Webkit内核，现在是 Blink 内核
+
+- Firefox 浏览器内核：Gecko 内核，俗称 Firefox 内核
+
+- Safari 浏览器内核：Webkit 内核
+
+- Opera 浏览器内核：最初是自己的 Presto 内核，后来加入谷歌大军，从 Webkit又到了 Blink 内核
+
+- 360 浏览器、猎豹浏览器内核：IE + Chrome 双内核
+
+- 搜狗、遨游、QQ 浏览器内核：Trident（兼容模式）+ Webkit（高速模式）
+
+- 百度浏览器、世界之窗内核：IE 内核
+
+- 2345 浏览器内核：好像以前是 IE 内核，现在也是 IE + Chrome 双内核了
+
+- UC 浏览器内核：这个众口不一，UC 说是他们自己研发的 U3 内核，但好像还是基于 Webkit 和 Trident ，还有说是基于火狐内核
+
 # 什么是文档的预解析
 
 # js继承的几种实现方式
