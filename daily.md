@@ -656,3 +656,23 @@ CommonJS是运行时加载对应模块，一旦输出一个值，即使模块内
 # 说一下base64的编码方式
 
 Base64是一种编码方式。选用大小写字母、数字0-9、+和/的64个可打印字符来表示二进制数据。将二进制数据每三个字节为一组。一共是3 * 8=24bit(位)，划分为四组，每一组为6bit(位)。如果要编码的二进制不是3的倍数，会用00在末尾补足，然后在编码的末尾加上1-2个=号，表示补了多少字节，解码的时候会去掉。将3个字节的二进制数据编码为4字节的文本，解码的时候会去掉。将3字节的二进制数据编码为4字节的文本，是可以让数据在邮件正文、网页等直接显示的。
+
+# 数组去重 const array = [1, 2, 3, 1, 9, 1, 2, 8]
+
+1、可以使用集合Set实现
+```javascript
+const array = [1, 2, 3, 1, 9, 1, 2, 8]
+
+const uniq = arr => […new Set(arr)]
+
+const result = uniq(array); // [1, 2, 3, 9, 8]
+```
+
+2、使用reduce
+```javascript
+const array = [1, 2, 3, 1, 9, 1, 2, 8]
+
+const uniq = arr => arr.reduce((acc, curr) => acc.includes(curr) ? acc : […acc, curr], [])
+
+const result = uniq(array); // [1, 2, 3, 9, 8]
+```
