@@ -676,3 +676,9 @@ const uniq = arr => arr.reduce((acc, curr) => acc.includes(curr) ? acc : […acc
 
 const result = uniq(array); // [1, 2, 3, 9, 8]
 ```
+
+# 说下 vue-router 中的导航钩子函数
+
+# 说一下React setState原理
+
+# 说说你所理解的中介者模式
