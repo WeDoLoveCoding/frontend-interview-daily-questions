@@ -702,3 +702,5 @@ const result = uniq(array); // [1, 2, 3, 9, 8]
 # 微服务有什么好处
 
 # Reflect 对象创建目的是什么
+
+# require模式引入的查找方式是什么
