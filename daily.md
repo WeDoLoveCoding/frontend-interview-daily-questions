@@ -704,3 +704,5 @@ const result = uniq(array); // [1, 2, 3, 9, 8]
 # Reflect 对象创建目的是什么
 
 # require模式引入的查找方式是什么
+
+# addEventListener再removeListener会不会造成内存泄露
