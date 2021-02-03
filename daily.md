@@ -808,6 +808,10 @@ function showCase(value) {
 showCase(new String('A'));
 ```
 
+答案：Do not know!
+
+在 switch 内部使用严格相等 === 进行判断，并且 new String("A") 返回的是一个对象，而 String("A") 则是直接返回字符串 "A"。
+
 # 提升变量
 ```
 //提升变量  请输出结果并进行解释
@@ -821,3 +825,7 @@ var name = 'spring';
     }
 })();
 ```
+答案:summer
+
+在 JavaScript中， functions 和 variables 会被提升。变量提升是JavaScript将声明移至作用域 scope (全局域或者当前函数作用域) 顶部的行为。
+这意味着你可以在声明一个函数或变量之前引用它，或者可以说：一个变量或函数可以在它被引用之后声明。
