@@ -788,3 +788,36 @@ Node 更适合处理 I/O 密集型的任务。因为 Node 的 I/O 密集型任�
 # 查找重复元素：找出数组arr中重复出现过的元素 [1,2,3,4,1,2,2,2] => [1,2]
 
 # 字符串陷阱
+```
+//字符串陷阱   请输出结果并进行解释
+function showCase(value) {
+  switch(value) {
+    case 'A':
+      console.log('Case A');
+      break;
+    case 'B':
+      console.log('Case B');
+      break;
+    case undefined:
+      console.log('undefined');
+      break;
+    default:
+      console.log('Do not know!');
+  }
+}
+showCase(new String('A'));
+```
+
+# 提升变量
+```
+//提升变量  请输出结果并进行解释
+var name = 'spring';
+(function () {
+    if (typeof name === 'undefined') {
+      var name = 'summer';
+      console.log(name);
+    } else {
+      console.log(name);
+    }
+})();
+```
