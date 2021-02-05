@@ -829,3 +829,14 @@ var name = 'spring';
 
 在 JavaScript中， functions 和 variables 会被提升。变量提升是JavaScript将声明移至作用域 scope (全局域或者当前函数作用域) 顶部的行为。
 这意味着你可以在声明一个函数或变量之前引用它，或者可以说：一个变量或函数可以在它被引用之后声明。
+
+# 添加元素(指定位置添加) 描述：在数组arr的index处添加元素item，不要直接修改数组arr，结果返回新的数组 [1,2,3] 2,6 结果为[1,2,6,3]
+
+# filter过滤器
+```
+var ary = [0,1,2];
+ary[10] = 10;
+ary.filter(function(x) {
+  return x === undefined;
+});
+```
