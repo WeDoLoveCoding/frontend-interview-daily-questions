@@ -2,9 +2,56 @@
 
 # Loader和Plugin的区别是什么？
 
+【Loader】：用于对模块源码的转换，loader描述了webpack如何处理非javascript模块，并且在buld中引入这些依赖。loader可以将文件从不同的语言（如TypeScript）转换为JavaScript，或者将内联图像转换为data URL。比如说：CSS-Loader，Style-Loader等。
+
+loader的使用很简单：
+
+在webpack.config.js中指定loader。module.rules可以指定多个loader，对项目中的各个loader有个全局概览。
+
+loader是运行在NodeJS中，可以用options对象进行配置。plugin可以为loader带来更多特性。loader可以进行压缩，打包，语言翻译等等。
+
+loader从模板路径解析，npm install node_modules。也可以自定义loader，命名XXX-loader。
+
+语言类的处理器loader：CoffeeScript，TypeScript，ESNext（Bable）,Sass,Less,Stylus。任何开发技术栈都可以使用webpack。
+
+【Plugin】：目的在于解决loader无法实现的其他事，从打包优化和压缩，到重新定义环境变量，功能强大到可以用来处理各种各样的任务。webpack提供了很多开箱即用的插件：CommonChunkPlugin主要用于提取第三方库和公共模块，避免首屏加载的bundle文件，或者按需加载的bundle文件体积过大，导致加载时间过长，是一把优化的利器。而在多页面应用中，更是能够为每个页面间的应用程序共享代码创建bundle。
+
+webpack功能强大，难点在于它的配置文件，webpack4默认不需要配置文件，可以通过mode选项为webpack指定了一些默认的配置，mode分为：development/production，默认是production。
+
+插件可以携带参数，所以在plugins属性传入new实例。
+
 # 请解释React中props和state的区别？
 
+在React中props和state都属于组件的数据，他们的改变都可能会触发组件的重新渲染。 
+
+- props 是组件对外的接口，对于传入的组件而言时可读的、不可变的，遵循单向数据流原则
+
+- state 是维护组件内部状态的， 是可变的。 
+
+组件内可以引用其他组件，组件之间的引用形成了一个树状结构，如果下层组件需要使用上层组件的数据或方法，上层组件就可以通过下层组件的props属性进行传递，因此props是组件对外的接口，用于组件间的通信。props不能通过子组件自身的方法修改，只能通过父组件传递的回调函数在父组件进行修改。 组件除了使用上层组件传递的数据外，自身也可能需要维护管理数据，这就是组件对内的接口state。修改组件内部状态需要使用setState或forceUpdate方法来改变。 根据对外接口props 和对内接口state，组件计算出对应界面的UI。 
+
+主要区别： 
+- state是可变的，是一组用于反映组件UI变化的状态集合；
+- props对于使用它的组件来说，是只读的，要想修改props，只能通过该组件的父组件修改。 在组件状态提升的场景中，父组件正是通过子组件的props, 传递给子组件其所需要的状态。
+- 没有state的组件叫做无状态组件，它接收props，只负责渲染，反之则叫做有状态组件。工作中应尽量使用无状态组件，增加代码的可维护性和复用性。
+
 # 浏览器的本地存储(1)的cookie了解多少？
+
+HTTP Cookie（也叫 Web Cookie 或浏览器 Cookie）是服务器发送到用户浏览器并保存在本地的一小块数据，它会在浏览器下次向同一服务器再发起请求时被携带并发送到服务器上。通常，它用于告知服务端两个请求是否来自同一浏览器，如保持用户的登录状态。Cookie 使基于无状态的HTTP协议记录稳定的状态信息成为了可能。 
+
+Cookie 主要用于以下三个方面： 
+
+- 会话状态管理（如用户登录状态、购物车、游戏分数或其它需要记录的信息） 
+
+- 个性化设置（如用户自定义设置、主题等） 
+
+- 浏览器行为跟踪（如跟踪分析用户行为等） 
+
+Cookie 的生命周期可以通过两种方式定义：
+
+- 会话期 Cookie 是最简单的 Cookie：浏览器关闭之后它会被自动删除，也就是说它仅在会话期内有效。会话期Cookie不需要指定过期时间（Expires）或者有效期（Max-Age）。需要注意的是，有些浏览器提供了会话恢复功能，这种情况下即使关闭了浏览器，会话期Cookie 也会被保留下来，就好像浏览器从来没有关闭一样，这会导致 Cookie 的生命周期无限期延长。 
+
+- 持久性 Cookie 的生命周期取决于过期时间（Expires）或有效期（Max-Age）指定的一段时间。
 
 # 浏览器的本地存储(2)的WebStorage了解多少？
 
@@ -13,6 +60,33 @@
 # 防抖节流原理、区别以及应用，请用js实现。
 
 # 在css中link和@import的区别是什么？
+
+首先，他们本质都是为了加载css文件。
+
+### link
+<link href="css 路径" rel="stylesheet" type="text/css" />
+
+### @import
+@import url(css 文件路径地址);
+
+### 区别
+
+语法结构不同，如上所示：
+- link是html标签，只能放到html文档中使用
+- @import是css提供的一种引入样式的方式，因此需要放在<style type="text/css">标签中
+- 
+用途不同：
+- link标签除了加载css文件外，还可以定义RSS，定义rel链接属性登
+- @import只能加载css
+
+加载顺序不同：
+- 当一个页面被加载的时候，link引用的css会同时被加载
+- @import引用的css则会等到页面完全被下载完才会去加载，因此，浏览@import加载css的页面时会没有样式（闪烁）
+
+兼容：
+- @import在老浏览器中不支持
+
+总结：推荐link方式
 
 # 常见的loader以及作用的总结
 
