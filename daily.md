@@ -64,10 +64,14 @@ Cookie 的生命周期可以通过两种方式定义：
 首先，他们本质都是为了加载css文件。
 
 ### link
+```
 <link href="css 路径" rel="stylesheet" type="text/css" />
+```
 
 ### @import
+```
 @import url(css 文件路径地址);
+```
 
 ### 区别
 
@@ -89,6 +93,28 @@ Cookie 的生命周期可以通过两种方式定义：
 总结：推荐link方式
 
 # 常见的loader以及作用的总结
+
+Loader用于对模块的源代码进行转换，可以使你在 import 或 加载模块时预处理文件。由于webpack本身只能打包JavaScript文件，对于其他资源，如css、图片、JSX等是无法处理的。这时候就需要用到loader将资源转化。Loader本质上就是一个export出来的函数，接受要处理的源文件字符串，返回经过“翻译”后的webpack可以直接处理的模块。
+
+常用loader及作用：
+- raw-loader：加载文件原始内容（utf-8）
+- file-loader：把文件输出到一个文件夹中，在代码中通过相对URL去引用输出的文件
+- url-loader：和file-loader类似，但是能在文件很小的情况下以base64的方式把文件内容注入到代码中
+- source-map-loader：加载额外的Source Map文件，以方便断点调试
+- svg-inline-loader：将压缩后的 SVG 内容注入代码中
+- image-loader：加载并且压缩图片文件
+- json-loader：加载 JSON 文件（默认包含）
+- handlebars-loader：将 Handlebars 模版编译成函数并返回
+- babel-loader：把ES6转化成ES5
+- ts-loader: 将 TypeScript 转换成 JavaScript
+- awesome-typescript-loader：将 TypeScript 转换成 JavaScript，性能优于 ts-loader
+- css-loader：加载css，支持模块化、压缩、文件导入等特性
+- style-loader：把css代码注入到js中，通过DOM操作去加载css
+- eslint-loader：通过ESLint检查JS代码
+- tslint-loader：通过 TSLint检查 TypeScript 代码
+- postcss-loader：扩展 CSS 语法，使用下一代 CSS，可以配合 autoprefixer 插件自动补齐 CSS3 前缀
+- vue-loader：加载 Vue.js 单文件组件
+- cache-loader: 可以在一些性能开销较大的 Loader 之前添加，目的是将结果缓存到磁盘里
 
 # vue计算属性和普通属性的区别是什么?
 
@@ -117,6 +143,63 @@ Cookie 的生命周期可以通过两种方式定义：
 # 说一说CSRF攻击
 
 # CSS伪类和伪元素区别
+
+### 什么是css伪类（CSS pseudo-classes）
+伪类的概念引入是为了能够表达在文档树语法之外无法通过简单的选择器表达的信息。伪类的语法是单个冒号带一个伪类名称。不区分大小写。有的伪类是互斥的，有的可以同时作用在同一个元素上，伪类也可以是动态的，来响应用户的交互。
+
+有哪些伪类：
+- :link 默认带href属性的a标签的样式
+- :visited 被访问过的链接的样式
+- :hover 鼠标悬浮上去的样式
+- :active 鼠标按下去的时候的样式
+>（上面四种定义的时候需要保证这样的顺序）
+
+- :focus 当前元素为focus状态
+- :lang lang(en) 对应html上的lang属性，符合的话执行样式
+- :empty 选择没有子元素的元素执行样式
+- :enable 选择表单元素具有非disable属性的元素，执行样式
+- :disable 选择表单元素具有disable属性的元素。执行样式
+- :checked 单选按钮或者多选按钮被选中的，执行样式
+- :target 锚点跳转到的内容执行样式
+- :root 匹配文档的根元素。html中默认就是html元素
+- :default 默认状态的表单元素，比如默认选中的下拉框，单选按钮，多选按钮，执行样式
+- :first-of-type 选中该元素是别人首个子元素，例如p:first-of-type 就是所以元素子元素中第一个p元素
+- :last-of-type 意义和上面类似，代表最后一个
+- :only-of-type 代表所有元素中只有一个该类型的元素p:only-of-type
+- :only-child 例如p:only-child 代表子元素中只有一个元素，且必须是该类型p
+- :first-child 例如p:first-child 代表是父元素中的第一个元素，且类型为p
+- :last-child 意义同上，最后一个元素
+- :nth-child(n) 例如p:nth-child(2) 表示选择子元素第二个且类型为p的元素，n从1开始算
+- :nth-last-child(n) 意思和上面类似，只不过是从结尾开始往前数第n个，n是从1开始算
+- :nth-of-type(n) 例如p:nth-of-type(2) 代表子元素中第二次出现的p元素 n从1开始算
+- :nth-last-of-type(n) 意义和上面类似，只不过是从尾部往前数，n从1开始算
+- :not() 例如 :not(p) 匹配非p元素
+
+### 什么是css伪元素（CSS pseudo-element）
+伪元素是在html文档树语法的基础上创造的一种抽象概念，例如，文档树语法里并没有提供一种机制让我们访问一个元素的内容的首个字母或者首行，伪元素提供了访问这样难以访问的信息的能力，伪元素还提供了对dom节点内不存在的内容的引用和生成能力，比如::after ::before 提供了生成内容的能力。
+
+一个伪元素包含两个冒号 ::
+
+有哪些常用伪元素：
+- ::first-letter 匹配内容的首个字符
+- ::first-line 匹配内容的首行内容
+- ::before 匹配内容前面的部分
+- ::after 匹配紧跟内容后面的部分
+- ::selection 匹配用户通过鼠标或者其他设备选中的内容部分
+
+### 伪类和伪元素的区别
+
+1、写法的区别
+
+在css3中定义了双冒号代表伪元素，单冒号代表伪类。以此来区分伪元素和伪类。为了兼容老的浏览器，用单冒号类表达伪元素也是能够被识别的，比如写:after :before :first-line :fist-letter。
+
+2、概念的区别
+
+伪类侧重丰富选择器的选择语法范围内元素的选择能力，伪元素侧重表达或者定义不在语法定义范围内的抽象元素。
+
+3、兼容性
+
+伪类和伪元素各自有一些存在的兼容问题。
 
 # Vuex和localStorage的区别
 
