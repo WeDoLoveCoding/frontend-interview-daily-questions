@@ -1011,3 +1011,5 @@ intersection(firstArray, secondArray); // 实现intersection函数
 const unsortedArray = [-10, 7, 2, 3, 5, -1, -7];
 computeProduct(unsortedArray) // 实现computeProduct函数
 ```
+
+# 说一下你理解的CORS
