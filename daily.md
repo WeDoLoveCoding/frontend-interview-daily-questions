@@ -1025,3 +1025,42 @@ CDN 是一个内容分发网络，通过对源网站资源的缓存，利用本�
 # node性能如何优化
 
 # 微服务和单体应用的区别
+
+# 移除数组中的元素(返回新的数组) 
+
+描述：移除数组arr中的所有值和item相等的元素。不要直接修改数组，结果返回新的数组
+```
+ function remove(arr, item) { //TODO}
+ let newArray = remove([1,2,3,4,2],2);//[1,3,4]
+```
+
+```
+答案：
+function remove(arr, item) { 
+  return arr.filter(a => item !== a)
+}
+```
+
+# 在末尾添加元素
+
+描述：在数组arr末尾添加元素item，不要直接修改数组arr，结果返回新数组 [1,2,3] 添加元素4 返回新数组[1,2,3,4]
+
+```
+答案：
+const arr = [1, 2, 3];
+const newArr = [...arr, 4]; // [1, 2, 3, 4]
+或者
+const arr = [1, 2, 3];
+const newArr = arr.concat(4); // [1, 2, 3, 4]
+```
+
+# 神奇的null
+
+```
+// 请输出结果并进行解释
+console.log([typeof null, null instanceof Object])
+```
+
+答案为：["object", false]
+
+在MDN关于 null 的文档中也特别指出来了，typeof null 的结果是 "object"，它是ECMAScript的bug，其实应该是 "null"。但这个bug由来已久，在JavaScript中已经存在了将近二十年，也许永远不会修复，因为这牵扯到太多的Web系统，修复它会产生更多的bug，令许多系统无法正常工作。而 instanceof 运算符是用来测试一个对象在其原型链构造函数上是否具有 prototype 属性，null 值并不是以 Object 原型建出来的，所以 null instanceof Object 返回 false。
