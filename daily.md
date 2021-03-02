@@ -1064,3 +1064,12 @@ console.log([typeof null, null instanceof Object])
 答案为：["object", false]
 
 在MDN关于 null 的文档中也特别指出来了，typeof null 的结果是 "object"，它是ECMAScript的bug，其实应该是 "null"。但这个bug由来已久，在JavaScript中已经存在了将近二十年，也许永远不会修复，因为这牵扯到太多的Web系统，修复它会产生更多的bug，令许多系统无法正常工作。而 instanceof 运算符是用来测试一个对象在其原型链构造函数上是否具有 prototype 属性，null 值并不是以 Object 原型建出来的，所以 null instanceof Object 返回 false。
+
+# 优先级顺序  
+```
+请输出结果并进行解释
+var val = 'smtg';
+console.log('Value is ' + (val === 'smtg') ? 'Something' : 'Nothing');
+```
+
+答案是："Something"，因为 + 的优先级比条件运算符 condition ? val1 : val2 的优先级高。
