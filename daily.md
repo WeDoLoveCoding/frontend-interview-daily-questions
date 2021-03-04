@@ -1073,3 +1073,20 @@ console.log('Value is ' + (val === 'smtg') ? 'Something' : 'Nothing');
 ```
 
 答案是："Something"，因为 + 的优先级比条件运算符 condition ? val1 : val2 的优先级高。
+
+# 给定一个整数数组，请找出两个元素之间的最大差，较小值的元素必须位于较大元素之前
+```
+const array = [7, 8, 15, 9, 20, 3, 1, 10];
+findLargestDifference(array)
+function findLargestDifference(array) {
+//TODO
+}//符合条件的两个数字:7和20
+```
+# 查找数组元素位置
+
+找出元素item在给定数组arr中的位置 描述：如果数组中存在item就返回元素在数组中的位置，否则就会返回-1 [1,2,3,4,5,6] --> 存在3就输出2，存在7输出-1
+```
+function indexOf(arr, item) {
+//TODO
+}
+```
