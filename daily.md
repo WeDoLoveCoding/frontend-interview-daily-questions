@@ -1134,3 +1134,15 @@ jsonp是一种跨域通信的手段，原理是通过script标签的src属性来
 
 var addToArrayForm = function (A, K) {//TODO}
 ```
+
+# Redux 中间件是如何拿到store和action
+
+redux中间件本质就是一个柯里化函数。
+
+- redux applyMiddleware api源码，每个applyMiddleware接收2个参数，store的getState函数和dispatch函数，分别获得store和action，最终返回一个函数
+
+- 该函数会被传入next的下一个middleware的dispatch方法，并返回一个接收action的新函数，这个函数可以直接调用next(action)，或者在其他需要的时刻去调用，或者不去调用
+
+- 调用链中最后一个middleware会接收store的dispatch方法作为next参数，并且借此结束调用链
+
+所以，middleware的函数时({getState,dispatch}) => next => action
