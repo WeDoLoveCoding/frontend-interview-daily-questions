@@ -1159,3 +1159,20 @@ redux中间件本质就是一个柯里化函数。
 
 缺点：
 - 在使用组合模式时，其叶子和树枝的声明都是实现类，而不是接口，违反了依赖倒置原则。
+
+# 了解函数式编程中的compose么
+
+将多个函数的能力合并，创造一个新的函数。compose函数可以接受任意的参数，所有的参数都是函数，且执行方向是自右向左的，初始函数一定放到参数的最右面。
+
+```
+const compose=(...fns)=>(...args)=>{
+  const [...tmpFns]=fns;
+  const composed=(...restArgs)=>{
+    if(tmpFns.length===0){
+      return restArgs[0];
+    }
+    return composed(tmpFns.pop()(...restArgs));
+  };
+  return composed(...args);
+};
+```
