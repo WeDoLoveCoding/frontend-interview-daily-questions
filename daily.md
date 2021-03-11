@@ -1195,3 +1195,5 @@ const compose=(...fns)=>(...args)=>{
 
 var shortestToChar = function (S, C) {//TODO}
 ```
+
+# 对称加密和非对称加密的区别和用处
