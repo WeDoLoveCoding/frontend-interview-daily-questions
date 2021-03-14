@@ -1285,3 +1285,7 @@ MyQueue.prototype.empty = function () {
     //TODO
 };
 ```
+
+# Vue是如何收集依赖的
+
+# 手动实现数组 Reduce 方法
