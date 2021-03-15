@@ -1289,3 +1289,71 @@ MyQueue.prototype.empty = function () {
 # Vue是如何收集依赖的
 
 # 手动实现数组 Reduce 方法
+```
+if (!Array.prototype.reduce) {
+  Object.defineProperty(Array.prototype, "reduce", {
+    value: function (callback) {
+      if (this === null) {
+        throw new TypeError("Array.prototype.reduce called on null or undefiend");
+      }
+      if (typeof callback !== "function") {
+        throw new TypeError(callback + "is not a function");
+      }
+      var o = Object(this);
+      // 位运算符  
+      // >>>是无符号右移运算符，保证结果为非负整数,是length值所要的数字。(如果运算为NaN，length结果为0，在后续代码中遍历对象也不会抛出异常)
+      var len = o.length >>> 0;
+      var k = 0;
+      var value;
+      if (arguments.length >= 2) {
+        value = arguments[1];
+      } else {
+        while (k < len && !(k in o)) {
+          k++;
+        }
+        if (k >= len) {
+          throw new TypeError("Reduce of empty array with no initial value");
+        }
+        value = o[k++];
+      }
+      while (k < len) {
+        if (k in o) {
+          value = callback(value, o[k], k, o);
+        }
+        k++;
+      }
+      return value;
+    },
+  });
+}
+```
+
+# 字符串解码
+```
+题目描述:
+    给定一个经过编码的字符串，返回它解码后的字符串。
+    编码规则为: k[encoded_string]，表示其中方括号内部的 encoded_string 正好重复 k 次。注意 k 保证为正整数。
+    你可以认为输入字符串总是有效的；输入字符串中没有额外的空格，且输入的方括号总是符合格式要求的。
+    此外，你可以认为原始数据不包含数字，所有的数字只表示重复的次数 k ，例如不会出现像 3a 或 2[4] 的输入。
+
+示例 1：
+    输入：s = "3[a]2[bc]"
+    输出："aaabcbc"
+
+
+示例 2：
+    输入：s = "3[a2[c]]"
+    输出："accaccacc"
+
+
+示例 3：
+    输入：s = "2[abc]3[cd]ef"
+    输出："abcabccdcdcdef"
+
+
+示例 4：
+    输入：s = "abc3[cd]xyz"
+    输出："abccdcdcdxyz"
+
+var decodeString = function (s) {//TODO}
+```
