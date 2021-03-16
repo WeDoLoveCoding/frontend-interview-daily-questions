@@ -1357,3 +1357,5 @@ if (!Array.prototype.reduce) {
 
 var decodeString = function (s) {//TODO}
 ```
+
+# 介绍你所理解的迭代器模式
