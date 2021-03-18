@@ -1361,3 +1361,5 @@ var decodeString = function (s) {//TODO}
 # 介绍你所理解的迭代器模式
 
 # JS为什么要区分微任务和宏任务
+
+# 讲一下你所了解的函数式编程
