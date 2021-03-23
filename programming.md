@@ -423,3 +423,21 @@ CustomStack.prototype.increment = function (k, val) {
     //TODO
 };
 ```
+
+# 手写实现Objeect.freeze
+Object.freeze方法可以冻结一个对象，冻结是指不能向这个对象添加新的属性，不能修改现有属性的值，不能删除属性，甚至不能修改这个对象现有属性的可枚举性、可配置性、可写性。换句话说，这个对象永远是不可变的，此方法返回被冻结的对象。Object.freeze是浅冻结。
+
+```
+function myFreeze(obj) {
+  for(item in obj){
+    if(obj[item] instanceof Object){
+      myFreeze(obj[item]);
+    } else {
+      Object.defineProperty(obj, item, {
+        writable: false;
+      })
+    }
+  }
+  Object.seal(obj);
+}
+```
