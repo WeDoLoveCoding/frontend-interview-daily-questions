@@ -1183,3 +1183,5 @@ Phantomjs 是基于一个 webkit内核的无头浏览器，即没有UI界面，�
 # 介绍你所理解的工厂模式
 
 # Promise.reslove(obj),obj有几种形式
+
+# 说说ES6对Object类型做了哪些优化更新
