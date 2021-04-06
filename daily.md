@@ -1204,16 +1204,15 @@ Phantomjs 是基于一个 webkit内核的无头浏览器，即没有UI界面，�
 
 常见解决跨域的方式
 
-- 利用jsonp进行跨域。（至于json与jsonp之间的区别，我在另一篇文章中描述过）这种方法就不用介绍了，这也是最常见的跨域方式之一。
+- 利用jsonp进行跨域。是最常见的跨域方式之一。
 
-- window.name+iframe window.name通过在iframe（一般动态创建i）中加载跨域HTML文件来起作用。然后，HTML文件将传递给请求者的字符串内容赋值给window.name。然后，请求者可以检索window.name值作为响应。
+- window.name+iframe window.name通过在iframe（一般动态创建）中加载跨域HTML文件来起作用。然后，HTML文件将传递给请求者的字符串内容赋值给window.name。然后，请求者可以检索window.name值作为响应。
 
 - window.postMessage() HTML5新特性，可以用来向其他所有的 window 对象发送消息。需要注意的是我们必须要保证所有的脚本执行完才发送 MessageEvent，如果在函数执行的过程中调用了它，就会让后面的函数超时无法执行。
 
-- WebSocket WebSocket protocol 是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通讯，是server push技术的一种很棒的实现。相关文章，请查看：WebSocket WebSocket-SockJS
+- WebSocket WebSocket protocol 是HTML5一种新的协议。它实现了浏览器与服务器全双工通信，同时允许跨域通讯，是server push技术的一种很棒的实现。
 
-- 图片ping或script标签跨域 图片ping常用于跟踪用户点击页面或动态广告曝光次数。script标签可以得到从其他来源数据，这也是JSONP依赖的根据。
-缺点：只能发送Get请求 ，无法访问服务器的响应文本（单向请求）
+- 图片ping或script标签跨域 图片ping常用于跟踪用户点击页面或动态广告曝光次数。script标签可以得到从其他来源数据，这也是JSONP依赖的根据。缺点：只能发送Get请求 ，无法访问服务器的响应文本（单向请求）
 
 
 # 请问如何进行首页加载优化
