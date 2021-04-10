@@ -1254,3 +1254,5 @@ DOM2 与 DOM0区别：
 DOM2级事件定义了两个方法，用于处理指定和删除事件处理程序的操作：addEventListener，removeEventListener
 
 # 说一下 Vue3 的 Composition API
+
+# cdn分布式部署，如何处理用户请求最近的资源
