@@ -1,3 +1,9 @@
+# 怎样避免重排，重绘
+
+# 什么是重排，重绘
+
+# 为什么要用 vuex 或者 Redux
+
 # 介绍 immutable
 
 # React 如何避免 render 的触发
