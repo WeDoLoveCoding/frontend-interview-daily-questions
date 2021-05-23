@@ -1,3 +1,7 @@
+# 搜索请求如何处理?搜索请求中文如何处理?
+
+# prototype 和 proto 区别
+
 # 接入 Redux 过程?绑定 connect 的过程?connect 的原理是什么
 
 # 说一下对 BigInt 的理解,在什么场景下会使用
