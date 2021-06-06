@@ -1,3 +1,5 @@
+# setTimeout 有什么缺点，和 requestAnimationFrame 有什么区别
+
 # dva 是干什么用的?其优缺点是?
 
 # 是否了解 glob 库，glob 是如何处理文件的?是否有别的方法
