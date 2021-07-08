@@ -1,3 +1,11 @@
+# Token 一般是存放在哪里
+
+# redux 和全局管理有什么区别
+
+# React Hooks 实现原理
+
+# Token 放在 cookie 和放在 localStorage、sessionStorage 中有什么不同
+
 # 页面刷新后的vuex的state数据丢失怎么办
 
 # WebSocket 如何断开重连
