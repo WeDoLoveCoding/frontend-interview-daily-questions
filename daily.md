@@ -1,3 +1,9 @@
+# Vuex 的 action 和 mutation 的特性是什么?有什么区别?
+
+# 说一下路由钩子在 vue 生命周期的体现
+
+# 什么是 React Hooks?为什么需要 Hooks
+
 # Token 一般是存放在哪里
 
 # redux 和全局管理有什么区别
