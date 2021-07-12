@@ -1,3 +1,5 @@
+# Promise.allSettled 了解么?试着手写下 Promise.allSettled
+
 # Vuex 的 action 和 mutation 的特性是什么?有什么区别?
 
 # 说一下路由钩子在 vue 生命周期的体现
