@@ -1,3 +1,7 @@
+# JS 是多线程么?绑定一个事件的回调函数是宏任务还是微任务?
+
+# 怎么理解 vue 的单向数据流
+
 # Promise.allSettled 了解么?试着手写下 Promise.allSettled
 
 # Vuex 的 action 和 mutation 的特性是什么?有什么区别?
