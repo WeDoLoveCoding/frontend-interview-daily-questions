@@ -1,3 +1,7 @@
+# 说说你对 Context 的理解，为什么 React 并不推荐我们优先考虑使用 Context?
+
+# React Hooks 的 useState 相对于有状态组件 state 区别是什么?
+
 # 说一下 etag 和 lastmodify 的区别
 
 # vue Hooks 有哪些
