@@ -1,3 +1,17 @@
+# 为什么使用 setTimeout 实现 setInterval?怎么模拟?
+
+# 用 for 模拟实现 forEach
+
+# 如何解决 vue 打包 vendor 过大的问题?webpack 打包 vue 速度慢怎么办?
+
+# 在 map 中和 for 中调用异步函数的区别?
+
+# Reflect.ownKeys 与 Object.keys 的区别
+
+# 除了 jsonp、postmessage 后端控制，怎么实现跨页面通讯?
+
+# 请实现一个 cacheRequest 方法，保证发出多次同一个 ajax 请求时都能拿到的数据，而而实际上只发出一次请求。
+
 # 说说你对 Context 的理解，为什么 React 并不推荐我们优先考虑使用 Context?
 
 # React Hooks 的 useState 相对于有状态组件 state 区别是什么?
