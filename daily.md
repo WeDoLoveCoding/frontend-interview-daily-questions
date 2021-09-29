@@ -1,3 +1,11 @@
+# 说一下 setTimeout 和 setInterval 在内存方面的区别?
+
+# redux 的设计思想
+
+# 301、302 的 https 被挟持怎么办?
+
+# 说说开发中常用的几种 Content-Type?
+
 # 说一下你对进程和线程的了解?
 
 # 说一下什么是 http 协议无状态？怎么解决 http 协议无状态?
