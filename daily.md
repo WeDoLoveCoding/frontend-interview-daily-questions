@@ -1,3 +1,21 @@
+# 如何实现 Redux 异步功能？
+
+# npm2 和 npm3+ 有什么区别？
+
+# 介绍下 pm2，pm2 依据什么重启服务？
+
+# 说下 React 的 useEffect、useCallback、useMemo
+
+# 用 CSS 实现 div 宽度自适应，宽高保持等比例缩放
+
+# 移动端适配方案具体实现以及对比
+
+# 单元测试如何测试？代码覆盖率如何？
+
+# setTimeout（1）与 setTimeout（2）之间的区别
+
+# JavaScript 里垃圾回收机制是什么？常用的是哪种，怎样处理的？
+
 # 16.X 中 props 改变后在哪个生命周期中处理?
 
 # 简述 Vue 的基本原理
