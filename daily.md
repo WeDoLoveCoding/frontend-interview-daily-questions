@@ -1,8 +1,37 @@
+# 为什么 WeakMap 和 WeakSet 的键只能使用对象?在什么场景下使用?
+
 # 说下你对前端工程化的理解
 
 # 有没有搭建过 CI/CD？说下搭建流程
 
 # 对 gitflow 了解吗？应该如何使用？
+
+# HTTP2.0 多路复用有多好?
+
+# 如果一个页面突然出现一段广告，可能是什么原因，怎么解决?
+
+# ES6 代码转化成 ES5 代码的实现思路是什么?大致说一下 babel 原理?
+
+# git pull --rebase 和 git pull 的区别是什么?
+
+```
+git pull = git fetch + git merge FETCH_HEAD
+
+git pull --rebase = git fetch + git rebase FETCH_HEAD
+```
+merge操作会生成一个新的节点，之前的提交分开显示，merge 操作遇到冲突的时候，当前merge不能继续进行下去。手动修改冲突内容后，add 修改，commit 就可以了
+
+而rebase操作不会生成新的节点，是将两个分支融合成一个线性的提交。如果 rebase 遇到冲突，会中断 rebase，同时会提示去解决冲突。解决冲突后，将修改add后执行`git rebase –continue`继续操作，或者`git rebase –skip` 忽略冲突
+
+# 说下你对 Reflect 的理解?为什么会有 Reflect 的出现?
+
+# redux-saga 和 mobx 的比较
+
+# 举例说明 React 插槽有哪些应用场景?
+
+# master 挂了的话，pm2 如何处理?
+
+# 上传文件的 content_type 使用什么，node 如何拿到上传的文件内容(不适用第三方插件)，文件内容是一次性传输过去的么?
 
 # 你知道 Vue 的模板语法用的是哪个 web 模板引擎么?说说你对模板引擎的理解?
 
