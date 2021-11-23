@@ -1,3 +1,26 @@
+# 反转链表
+
+```
+/*
+输入：head = [1,2,3,4,5]
+输出：[5,4,3,2,1]
+*/
+var reverseList = function(head) {
+    if (!head || !head.next) return head;
+
+    let prev = null;
+    let curr = head;
+
+    while(curr) {
+        let next = curr.next;
+        curr.next = prev;
+
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+};
+```
 # 为什么扩展 JavaScript 内置对象不是好的做法?
 
 # 说下 webpack Runtime 和 Manifest 代码的作用？
