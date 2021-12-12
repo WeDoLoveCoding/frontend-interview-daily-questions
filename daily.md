@@ -1,3 +1,10 @@
+# 如果在控制台中运行以下函数，页面的 UI 是否仍然响应？
+```
+function foo() {
+  return Promise.resolve().then(foo);
+}
+```
+
 # 验证栈序列
 
 # encoding 头都有哪些编码方式？
