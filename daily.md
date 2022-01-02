@@ -55,7 +55,9 @@ DELET:在服务器删除资源(删)
 
 
 var lengthOfLastWord = function(s) {
-    // TODO
+    if (!s) return 0
+    let arr = s.trim().split(' ')
+    return arr[arr.length - 1].length
 };
 ```
 
