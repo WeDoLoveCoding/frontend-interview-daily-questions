@@ -1,3 +1,13 @@
+# 常见的兼容性问题有哪些?
+
+- 不同的浏览器的默认标签的 margin 和 padding 不一样。 `*{margin:0;padding:0;}`
+- IE6 双边距：块属性标签 float 后，又有横行的 margin 情况下，在 IE6 显示 margin 比设置的大。 `hack：display:inline将其转化为行内属性`
+- 设置较小高度标签(一般小于 10px)，在 IE6，IE7 中高度超出自己设置高度。hack：给超出高度的标签设置 overflow:hidden;或者设置行高 line-height 小于你设置的高度
+- IE 下，可以使用获取常规属性的方法来获取自定义属性，也可以使用 getAttribute()获取自定义属性；Firefox 下，只能使用 getAttribute()获取自定义属性。
+  - 解决方法：统一通过 getAttribute()获取自定义属性
+- Chrome 中文界面下默认会将小于 12px 的文本强制按照 12px 显示，可通过加入 CSS 属性 `-webkit-text-size-adjust: none; ` 解决
+- 超链接访问过后 hover 样式就不出现了，被点击访问过的超链接样式不再具有 hover 和 active 了。解决方法是改变 CSS 属性的排列顺序: `L-V-H-A ( love hate ): a:link {} a:visited {} a:hover {} a:active {}`
+
 # 什么情况会阻塞渲染?
 
 - html和css生成渲染树的过程
