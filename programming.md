@@ -1,3 +1,16 @@
+# 数组相对排序
+```
+给定两个数组，arr1 和 arr2:
+
+arr2 中的元素各不相同
+arr2 中的每个元素都出现在 arr1 中
+对 arr1 中的元素进行排序，使 arr1 中项的相对顺序和 arr2 中的相对顺序相同。未在 arr2 中出现过的元素需要按照升序放在 arr1 的末尾。
+
+var relativeSortArray = function (arr1, arr2) {
+    // TODO
+};
+```
+
 # 合并两个有序数组
 ```
 给你两个按 非递减顺序 排列的整数数组&nbsp;nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。
