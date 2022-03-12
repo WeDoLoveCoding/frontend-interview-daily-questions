@@ -1,3 +1,7 @@
+# 你所了解的网页制作用到的图片格式有哪些?
+
+png-8, png-24, jpeg, gif, gif, svg, webp 等
+
 # 请列出 HTTP/1.1 协议 Response 状态码: 20x、30x、40x、 50x 等各区间的含义，并说明 Action 在 Restful API 中分别使用哪些 HTTP 副词表现出 CRUD?
 ```
 HTTP/1.1 协议 Response 状态码: 20x、30x、40x、 50x 等各区间的含义
