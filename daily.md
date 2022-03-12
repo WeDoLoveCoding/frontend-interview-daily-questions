@@ -1,3 +1,24 @@
+# instanceof 的原理是什么
+
+instanceof 运算符用于测试构造函数的 prototype 属性是否出现在对象原型链中的任何位置
+
+实现：
+```
+function instanceof(left, right) {
+  const RP = right.prototype; // 构造函数的原型
+  while(true) {
+    if (left === null) {
+      return false;
+    }
+    if (left === RP) { // 一定要严格比较
+      return true;
+    }
+    left = left.__proto__; // 沿着原型链重新赋值
+  }
+}
+复制代码
+```
+
 # 你所了解的网页制作用到的图片格式有哪些?
 
 png-8, png-24, jpeg, gif, gif, svg, webp 等
