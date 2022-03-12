@@ -1,3 +1,8 @@
+# 什么情况会阻塞渲染?
+
+- html和css生成渲染树的过程
+- 解析script标签，DOM暂停构建
+
 # instanceof 的原理是什么
 
 instanceof 运算符用于测试构造函数的 prototype 属性是否出现在对象原型链中的任何位置
