@@ -1,3 +1,7 @@
+# 描述下你所理解的 postcss 作用
+
+postcss 提供了一个解析器，能够将 css 解析成抽象语法树。通过在 postcss 这个平台上开发一些插件来处理css，比如，autoprefixer。postcss 可以对 sass 处理过的 css 再进行处理，比如 autoprefixer
+
 # 简述一下 src 和 href 的区别
 
 href：是指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，用于超链接；如果我们在文档中添加 <link href="min.css" rel="stylesheet"/> 那么浏览器会识别该文档为 css 文件，就会并行下载资源并且不会停止对当前文档的处理,这也是为什么建议使用 link 方式来加载 css，而不是使用 @import 方式。
