@@ -1,3 +1,23 @@
+# Composition API 与 React Hooks 很像，区别是什么?
+
+从 React Hook 的实现角度看，React Hook 是根据 useState 调用的顺序来确定下一次重渲染时的 state 是来源于哪个 useState，所以出现了以下限制：
+
+- 不能再循环、条件、嵌套函数中调用 Hook
+
+- 必须确保总是在你的 React 函数的顶层调用 Hook
+
+- useEffect、useMemo 等函数必须手动确定依赖关系
+
+而 Composition API 是基于 Vue 的响应式系统实现的，与 React Hook 相比：
+
+- 声明在 setup 函数内，一次组件实例化只调用一次 setup，而 React Hook 每次重渲染都需要调用 Hook，使得 React 的 GC 比 Vue 更有压力，性能也行对于 Vue 来说比较慢
+
+- Composition API 的调用不需要考虑调用顺序，也可以在循环、条件、嵌套函数中使用
+
+- 响应式系统自动实现依赖收集原理，进而组件部分的性能优化由 Vue 内部自己完成，而 React Hook 需要手动传入依赖，且必须保证依赖的顺序，让 useEffect、useMemo 等函数正确的捕获依赖变量，否则会由于依赖不正确使得组件性能下降
+
+虽然 Composition API 看起来比 React Hook 好用，但其设计思想也是借鉴 React Hook 的
+
 # 正向代理和反向代理分别是什么？
 
 - 正向代理
