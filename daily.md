@@ -1,3 +1,14 @@
+# 了解 React 中的 ErrorBoundary 吗，它有哪些使用场景?
+
+ErrorBoundary可以在任务子组件中捕获js错误，只需在根组件中定义一次，即可捕获所有子组件的错误。其实就是在整个 workloop 外面包一层 try catch，报错的时候遍历父组件找到这两个生命周期并把堆栈信息塞给生命周期进行判断
+
+但以下4种错误除外：
+
+1. 事件处理函数中使用try catch
+2. 异步函数（setTimeout）
+3. 服务端渲染
+4. 当前ErrorBoundary抛出的错误 
+
 # Composition API 与 React Hooks 很像，区别是什么?
 
 从 React Hook 的实现角度看，React Hook 是根据 useState 调用的顺序来确定下一次重渲染时的 state 是来源于哪个 useState，所以出现了以下限制：
