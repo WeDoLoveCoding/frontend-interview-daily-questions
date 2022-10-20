@@ -1,3 +1,11 @@
+# document.write 和 innerHTML 的区别？
+
+document.write 是直接写入页面的内容流，如果在写之前没有调用document.open，浏览器会自动调用open。每次写完关闭后重新调用该函数，会导致页面重写，这个方法是重写整个document，写入内容是字符串的html
+
+innerHTML 是DOM页面元素的一个属性，代表该元素的html内容。不会导致页面重绘，它是 HTMLElement 的属性，是一个元素的内部 html 内容。
+
+
+
 # React 中怎么实现状态自动保存(KeepAlive)?
 
 在 React 中，我们通常会使用路由去管理不同的页面，而在切换页面时，路由将会卸载掉未匹配的页面组件。当我们在临时离开交互场景，需要对状态进行保存。常见的解决方式：
