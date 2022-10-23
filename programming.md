@@ -1,3 +1,54 @@
+# 反转字符串中的元音字母
+
+```
+给你一个字符串 s ，仅反转字符串中的所有元音字母，并返回结果字符串。
+
+元音字母包括 'a'、'e'、'i'、'o'、'u'，且可能以大小写两种形式出现。
+
+
+示例 1：
+输入：s = "hello"
+输出："holle"
+
+示例 2：
+输入：s = "leetcode"
+输出："leotcede"
+
+// 双指针：我们可以使用两个指针 i 和 j 对字符串相向地进行遍历。
+
+// 具体地，指针 i 初始时指向字符串 s 的首位，指针 j 初始时指向字符串 s 的末位。在遍历的过程中，我们不停地将 i 向右移动，直到 i 指向一个元音字母（或者超出字符串的边界范围）；同时，我们不停地将 j 向左移动，直到 j 指向一个元音字母。此时，如果 i<j，那么我们交换 i 和 j 指向的元音字母，否则说明所有的元音字母均已遍历过，就可以退出遍历的过程。
+
+var reverseVowels = function (s) {
+    const n = s.length;
+    const arr = Array.from(s);
+    let i = 0, j = n - 1;
+    while (i < j) {
+        while (i < n && !isVowel(arr[i])) {
+            ++i;
+        }
+        while (j > 0 && !isVowel(s[j])) {
+            --j;
+        }
+        if (i < j) {
+            swap(arr, i, j);
+            ++i;
+            --j;
+        }
+    }
+    return arr.join('');
+}
+
+const isVowel = (ch) => {
+    return "aeiouAEIOU".indexOf(ch) >= 0;
+}
+
+const swap = (arr, i, j) => {
+    const temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+```
+
 # 找不同
 ```
 给定两个字符串 s 和 t，它们只包含小写字母。
