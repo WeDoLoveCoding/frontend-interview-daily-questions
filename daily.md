@@ -1,3 +1,13 @@
+# 如何实现浏览器内多个标签页之间的通信?
+
+- Broadcast Channel：用于同源不同页面之间完成通信的功能，在其中某个页面发送的消息会被其他页面监听到
+
+- localStorage：浏览器多个标签共用的存储空间，所以可以用来实现多标签之间的通信(session 是会话级的存储空间，每个标签页都是单独的)
+
+- WebSocket：通讯全双工(full-duplex)通信自然可以实现多个标签之间的通信
+
+- postMessage：两个需要交互的 tab 页面具有依赖关系
+
 # document.write 和 innerHTML 的区别？
 
 document.write 是直接写入页面的内容流，如果在写之前没有调用document.open，浏览器会自动调用open。每次写完关闭后重新调用该函数，会导致页面重写，这个方法是重写整个document，写入内容是字符串的html
