@@ -2,6 +2,18 @@
 
 # React Fiber 是如何实现更新过程可控?
 
+Fiber 是比线程（Thread）控制得更精密的执行模型。简单点说，Fiber 就是 React 16 实现的一套新的更新机制，让 React 的更新过程变得可控，避免了之前一竿子递归到底影响性能的做法。
+
+更新过程的可控主要体现在下面几个方面：
+
+- 任务拆分：将调和阶段（Reconciler）递归遍历 VDOM 这个大任务分成若干小任务，每个任务只负责一个节点的处理
+
+- 任务挂起、恢复、终止：workInProgress 代表当前正在执行更新的 Fiber 树，这棵树在构建每一个节点的时候会收集当前节点的副作用，整棵树构建完成后，会形成一条完整的副作用链；currentFiber 表示上次渲染构建的 Filber 树，在每一次更新完成后 workInProgress 会赋值给  currentFiber。在新一轮更新时 workInProgress tree 再重新构建，新 workInProgress 的节点通过 alternate 属性和 currentFiber 的节点建立联系。在新 workInProgress tree 的创建过程中，会同 currentFiber 的对应节点进行 Diff 比较，收集副作用。同时也会复用和 currentFiber 对应的节点对象，减少新创建对象带来的开销，任务挂起、恢复、终止 整个过程发生在 workInProgress tree 创建过程中
+
+![任务调度](https://static001.geekbang.org/infoq/82/82943272cfb62fefcee943cb845d26e4.webp)
+
+- 任务具备优先级：具体点就是在创建或者更新 FiberNode 的时候，通过算法给每个任务分配一个到期时间（expirationTime）。在每个任务执行的时候除了判断剩余时间，如果当前处理节点已经过期，那么无论现在是否有空闲时间都必须执行改任务
+
 # React 中的 ref 有什么用?
 
 使用 refs 获取组件被调用时会新建一个该组件的实例。refs 会指向这个实例，可以是一个回调函数，回调函数会在组件被挂载后立即执行。
