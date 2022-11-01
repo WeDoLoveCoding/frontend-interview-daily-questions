@@ -1,3 +1,16 @@
+# webpack、rollup、parcel 的优劣是什么？
+
+| 对比      | webpack | rollup | parcel |
+| ----------- | ----------- | ----------- | ----------- |
+| 功能      | 为处理资源管理和分割代码而生，可以用来处理任何类型的文件，灵活，插件多       | 用标准化的格式（es6）来写代码，通过减少死代码尽可能地缩小包体积      | 用标准化的格式（es6）来写代码，通过减少死代码尽可能地缩小包体积      |
+| 配置   | webpack需要配config文件，指明entry, output, plugin，transformations        | rollup需要配config文件，指明entry, output, plugin，transformations。rollup 有对import/export所做的node polyfills，webpack没有。rollup支持相对路径，而webpack没有，所以得使用path.resolve/path.join        | parcel则是完全开箱可用的，不用配置        |
+| 入口文件   | webpack只支持js文件作为入口文件，如果要以其他格式的文件作为入口，比如html文件为入口，如要加第三方Plugin        | rollup可以用html作为入口文件，但也需要plugin，比如rollup-plugin-html-entry   | parcel可以用index.html作为入口文件，而且它会通过看index.html的script tag里包含的什么自己找到要打包生成哪些js文件   |
+| transformations   | transformations指的是把其他文件转化成js文件的过程，需要经过transformation才能够被打包。webpack使用Loaders来处理        | rollup使用plugins来处理   | parcel会自动去转换，当找到配置文件比如.babelrc, .postcssrc后就会自动转   |
+| tree shaking   | tree shaking 优化是webpack的一大特性。需要1，用import/export语法，2，在package.json中加副作用的入口，3，加上支持去除死代码的缩小器（uglifyjsplugin）        | rollup会统计引入的代码并排除掉那些没有被用到的。这使您可以在现有工具和模块的基础上构建，而无需添加额外的依赖项或膨胀项目的大小   | parcel不支持摇树优化   |
+| dev server   | webpack用webpack-dev-server        | rollup用rollup-plugin-serve和rollup-plugin-livereload共同作用   | parcel内置的有dev server   |
+| 热更新   | webpack的 wepack-dev-server支持hot模式        | rollup不支持hmr   | parcel有内置的hmr   |
+| 代码分割   | webpack通过在entry中手动设置，使用CommonsChunkPlugin，和模块内的内联函数动态引入来做代码分割        | rollup有实验性的代码分割特性。它是用es模块在浏览器中的模块加载机制本身来分割代码的。需要把experimentalCodeSplitting 和 experimentalDynamicImport 设为true   | parcel支持0配置的代码分割。主要是通过动态improt   |
+
 # 简述 Vue 模板编译原理
 
 Vue 中的模板 tempalte 无法被浏览器解析并渲染，因为这不属于浏览器的标准，不是正确的 HTML 语法，所以需要将 template 转化成一个 JS 函数，这样浏览器就可以执行这一个函数并渲染出对应的 HTML 元素，就可以让试图跑起来，这是一个转化的过程，就成为模板编译。模板编译又分为三个阶段：解析 parse、优化 optimize，生成 genertate，最终生成可执行函数 render
