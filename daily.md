@@ -1,3 +1,7 @@
+# Redux 中异步的请求怎么处理?
+
+Redux 中 Reducer 必须是同步函数，因此异步处理会放到中间件中去做。Redux 中间件实质是 store.dispatch 函数的增强器，它们拦截特定的 Action，并在其中把带有副作用的工作完成。常见的异步处理中间件有：redux-thunk、redux-saga、redux-promise 等
+
 # 如何用 webpack 来优化前端性能？
 
 1. 压缩代码：删除多余的代码、注释、简化代码的写法等方式；比如，利用 webpack 的 UglifyJsPlugin 和 ParallelUglifyPlugin 来压缩 js ⽂件， 利⽤ cssnano （css-loader?minimize）来压缩css
