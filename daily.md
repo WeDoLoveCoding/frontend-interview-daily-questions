@@ -1,3 +1,15 @@
+# 页面导入样式时，使用 link 和@import 有什么区别？
+
+两者都是外部引用 css 的方式，它们的区别如下：
+
+- link 是 XHTML 标签，除加载 css 之外，还可以定义 RSS 等其他事务；@import 属于 css 范畴，只能加载 css
+
+- link 引用 css 时，在页面载入时同时加载；@import 需要页面网页完全载入以后加载
+
+- link 是 XHTML 标签，无兼容问题；@import 是在 css2.1 提出的，低版本的浏览器不支持
+
+- link 支持使用 javascript 控制 DOM 去改变样式；而@import 不支持
+
 # URI 和 URL 的区别
 
 URL是统一资源定位器，用于标识资源；URI（统一资源标识符）提供了更简单和可扩展的标识资源的方法。URL是URI的子集。
