@@ -1,3 +1,34 @@
+# React 中，父子组件的生命周期执行顺序是怎么样的?
+
+React 的生命周期从广义上分为三个阶段：挂载、渲染、卸载，因此可以把 React 的生命周期分为两类：挂载卸载过程和更新过程。
+
+#### 挂载卸载过程
+constructor 完成 React 数据的初始化
+
+componentWillMount 组件初始化数据后，但是还未渲染 DOM 前
+
+componentDidMount 组件第一次渲染完成，此时 dom 节点已经生成
+
+componentWillUnmount 组件的卸载和数据的销毁
+
+#### 更新过程
+componentWillReceiveProps(nextProps) 父组件改变后的 props 需要重新渲染组件时
+
+shouldComponentUpdate(nextProps，nextState) 主要用于性能优化(部分更新)，因为 react 父组件的重新渲染会导致其所有子组件的重新渲染，这个时候其实我们是不需要所有子组件都跟着重新渲染的，在这里 return false 可以阻止组件的更新
+
+componentWillUpdate(nextProps,nextState) shouldComponentUpdate 返回 true 后，组件进入重新渲染的流程
+
+componentDidUpdate(prevProps,prevState) 组件更新完毕后触发
+
+render() 渲染时触发
+
+#### 父子组件加载顺序
+观察父子组件的挂载生命周期函数，可以发现挂载时，子组件的挂载钩子先被触发；卸载时，子组件的卸载钩子后被触发
+
+我们经常在挂载函数上注册监听器，说明此时是可以与页面交互的，也就是说其实所有挂载钩子都是在父组件实际挂载到 dom 树上才触发的，不过是在父组件挂载后依次触发子组件的 componentDidMount，最后在触发自身的挂载钩子，说白了，componentDidMount 其实是异步钩子。相反，卸载的时候父节点先被移除，在从上至下依次触发子组件的卸载钩子
+
+但是我们也经常在卸载钩子上卸载监听器，这说明 componentWillUnmount 其实在父组件从 dom 树上卸载前触发的，先出发自身的卸载钩子，但此时并未从 dom 树上剥离，然后依次尝试触发所有子组件的卸载钩子，最后，父组件从 dom 树上完成实际卸载
+
 # css sprites 是什么?怎么使用?
 
 css sprites 是一种网页图片应用处理方式，就是把网页中一些背景图片整合到一张图文件中，在利用 css 的 background-image、background-repeat、background-position 的组合进行背景定位以提高性能，也被称为css精灵图。
