@@ -1,4 +1,20 @@
-# React 面试题
+# React 相关面试题
+
+# Redux 中的 connect 有什么作用?
+
+connect 负责连接 React 和 Redux。
+
+- 获取 state
+
+connect 通过 context 获取 Provider 中的 store，通过 store.getState()获取整合 store tree 上所有 state
+
+- 包装原组件
+
+将 state 和 action 通过 props 的方式传入到原组件内部 WrapWithConnent 返回一个 ReactComponent 对象 Connent，Connect 重新 redner 外部传入的原组件 WrappedComponent，并把 connect 中传入的 mapStateToProps，mapDispatchToProps 与组件上原有的 props 合并后，通过属性的方式传递给 WrappedComponent
+
+- 监听 store tree 变化
+
+connect 缓存 store tree 中 state 的状态，通过当前 state 状态和变更前 state 状态进行比较，从而确定是否调用 this.setState()方法触发 Connect 及其子组件的重新渲染
 
 # React 构建组件的方式有哪些?有什么区别?
 
