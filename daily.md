@@ -1,3 +1,5 @@
+# 如何使用 css 来实现禁止移动端页面的左右滑动手势?
+
 # 什么是 JSX?
 
 JSX是一种JavaScript的语法扩展，全称JavaScript XML，运用于React架构中，其格式比较像是模版语言，但事实上完全是在JavaScript内部实现的。元素是构成React应用的最小单位，JSX就是用来声明React当中的元素，React使用JSX来描述用户界面，能让我们可以在JS中写html标记语言。
