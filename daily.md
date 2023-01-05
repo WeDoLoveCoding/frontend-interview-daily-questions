@@ -1,5 +1,24 @@
 # 如何使用 css 来实现禁止移动端页面的左右滑动手势?
 
+1.CSS 属性touch-action用于设置触摸屏用户如何操作元素的区域（例如：浏览器内置的缩放功能）
+
+最简单方法是：
+```
+html {
+  touch-action: none;
+  touch-action: pan-y;
+}
+```
+还可以直接指定对应元素的宽度和 overflow：
+```
+html {
+  width: 100vw;
+  overflow-x: hidden;
+}
+```
+
+2.使用js监听touch事件，使用event.preventDefault()阻止浏览器的默认行为
+
 # 什么是 JSX?
 
 JSX是一种JavaScript的语法扩展，全称JavaScript XML，运用于React架构中，其格式比较像是模版语言，但事实上完全是在JavaScript内部实现的。元素是构成React应用的最小单位，JSX就是用来声明React当中的元素，React使用JSX来描述用户界面，能让我们可以在JS中写html标记语言。
