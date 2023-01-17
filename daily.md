@@ -1,3 +1,5 @@
+# 协商缓存中，有 Last-Modified，为什么还会出现 ETag?
+
 # JS 中怎么阻止事件冒泡和默认事件？
 
 - event.stopPropagation()
