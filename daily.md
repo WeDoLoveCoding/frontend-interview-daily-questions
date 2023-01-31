@@ -1,3 +1,22 @@
+# 如何从 html 元素继承 box-sizing?
+
+在大多数情况下我们在设置元素的 border 和 padding 并不希望改变元素的 width、height 值，这个时候我们就可以为该元素设置 box-sizing:border-box;
+
+如果不希望每次都重写一遍，而是希望它是继承过来的，那么我们可以使用如下代码：
+
+```
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+```
+
+这样的好处在于它不会覆盖其他组件的 box-sizing 值，又无需为每一个元素重复设置 box-sizing:border-box;
+
 # 微前端可以解决什么问题？
 
 任何新技术的产生都是为了解决现有场景和需求下的技术痛点，微前端也不例外：
