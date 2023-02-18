@@ -32,6 +32,20 @@
 
 1.keep-alive
 
+优点：
+
+- 代码量少
+
+- 不需要考虑状态传递过程中的错误
+
+缺点：
+
+- 增加 A 组件维护成本
+
+- 需要传入额外的 prop 到 B 组件
+
+- 无法利用路由定位页面
+
 # 如何从 html 元素继承 box-sizing?
 
 在大多数情况下我们在设置元素的 border 和 padding 并不希望改变元素的 width、height 值，这个时候我们就可以为该元素设置 box-sizing:border-box;
