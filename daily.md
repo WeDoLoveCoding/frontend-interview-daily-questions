@@ -1,3 +1,17 @@
+# URI、URL、URN 分别是什么?
+
+URL 代表资源的路径地址，而 URI 代表资源的名称
+
+URI：Universal Resource Identifier 统一资源标识符
+
+URL：Universal Resource Locator 统一资源定位符。URL 类似于住址，它告诉你一种寻找目标的方式
+
+URN：Universal Resource Name 统一资源名称。可以把一个人的名字看作是 URN，因此可以用 URN 来唯一标志一个实体
+
+URL 是 URI 的一个子集，告诉我们访问网络位置的方式；URN 是 URI 的子集，包括名字(给定的命名空间内)，但是不包括访问方式
+
+URN 和 URL 都是 URI 的子集
+
 # TS 中 never 和 void 的区别?
 
 - void 表示没有任何类型(可以被赋值为 null 和 undefined)
