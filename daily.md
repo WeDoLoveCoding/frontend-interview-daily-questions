@@ -1,3 +1,11 @@
+# async/await 和 Promise 有什么关系?
+
+async/await 是一种基于 Promise 的异步编程模式，是 ECMAScript 2017（ES8）中的新增语法糖。它是用于处理异步操作的一种更加直观和易用的方法，可以使得异步代码的编写和理解更加简单和直接。
+
+在使用 async/await 时，可以使用关键字 async 来声明一个异步函数，该函数内部可以使用 await 关键字来等待异步操作的结果。当使用 await 等待一个 Promise 对象时，该操作会自动挂起当前的异步函数，直到该 Promise 对象的状态变为 resolved（已完成）或 rejected（已拒绝）。
+
+实际上，async/await 是建立在 Promise 之上的语法糖，它可以使得使用 Promise 的异步代码更加简洁和易读。使用 async/await 可以避免一些 Promise 链式调用的嵌套，提高代码可读性和可维护性。
+
 # HTTP 协议的优点和缺点
 
 HTTP 是超文本传输协议，它定义了客户端和服务器之间交换报文的格式和方式，默认使用 80 端口。它使用 TCP 作为传输层协议，保证数据传输的可靠性
