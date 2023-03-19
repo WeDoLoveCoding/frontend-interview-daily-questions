@@ -45,3 +45,13 @@ DFC是一种基于Grid的布局方式，可以使一个元素的内部子元素�
 另外，line-height还可以设置为一个无单位的值，如line-height: 1.5em;，此时行高将相对于当前元素的字体大小计算。
 
 需要注意的是，在某些情况下，line-height属性值的不同可能会对页面布局产生影响。例如，当line-height的属性值小于当前字体大小时，可能会导致行高小于字体大小，从而导致文字的重叠或截断。因此，在设置line-height时需要注意其属性值的具体含义和影响。
+
+# line-height VS vertical-align
+
+`line-height` 和 `vertical-align` 都是用来控制元素在垂直方向上的布局，但它们的作用不同。
+
+- `line-height` 用来设置行高，即文本行与行之间的垂直间距，它是应用于一个元素的文本内容的。当一个元素没有设置高度时，它的高度会根据文本内容和行高自适应，当行高小于字体大小时，文本会出现“溢出”现象。如果设置了 line-height，则元素的高度会随之改变，行高会影响元素内文本的对齐方式。
+
+- `vertical-align` 则用于设置元素内行内元素（如文本、图片等）在垂直方向上的对齐方式。如果元素内没有行内元素，vertical-align 不会起作用。vertical-align 的属性值有多种，如 top、middle、bottom、baseline 等，它们分别代表了不同的垂直对齐方式。如果没有设置 vertical-align，默认为 baseline 对齐方式。
+
+需要注意的是，line-height 和 vertical-align 的作用对象不同，line-height 作用于元素的文本内容，而 vertical-align 作用于元素内的行内元素。在实际的布局中，可以结合使用 line-height 和 vertical-align，来实现对文本和行内元素的精确控制。
