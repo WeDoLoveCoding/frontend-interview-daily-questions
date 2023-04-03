@@ -1,3 +1,23 @@
+# absolute 的 margin:auto 居中
+
+margin: auto; 可以用于水平居中一个元素，但是要使其在绝对定位中居中，还需要将其父元素设置为相对定位，然后将该元素的左、右、上、下位置设置为 0，如下所示：
+```
+.parent {
+  position: relative;
+}
+
+.child {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+```
+这将使子元素在父元素中居中。但此方法只适用于已知宽高的元素，如果想要在不知道元素大小的情况下居中，应考虑使用 transform 属性。
+
 # line-height 为何能让内联元素居中
 
 line-height 属性可以让内联元素在其包含块内垂直居中，这是因为 line-height 指定了行框盒子的高度，而行框盒子的高度通常大于文本的实际高度。具体来说，行框盒子的高度是由以下三个部分组成：
