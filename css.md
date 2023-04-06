@@ -1,3 +1,48 @@
+# 真正了解 @font-face 的规则
+
+@font-face 是一个 CSS 规则，它允许开发人员在网站上使用自定义字体。使用 @font-face 规则可以将自定义字体文件（通常是 .woff 或 .woff2 格式的字体文件）嵌入网页，使网页能够在用户的计算机上显示自定义字体，而不必依赖于用户计算机上已安装的字体。
+
+以下是 @font-face 规则的基本语法：
+```
+@font-face {
+  font-family: 'FontName';
+  src: url('fontname.eot');
+  src: url('fontname.eot?#iefix') format('embedded-opentype'),
+       url('fontname.woff2') format('woff2'),
+       url('fontname.woff') format('woff'),
+       url('fontname.ttf') format('truetype'),
+       url('fontname.svg#fontname') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+```
+- font-family：定义字体的名称，必须与 CSS 中其他字体使用的名称一致。
+- src：定义字体文件的位置和格式。可以指定多个不同格式的字体文件，以便在不同的浏览器和设备上使用最适合的格式。
+- font-weight：定义字体的粗细程度，通常为 normal 或 bold。
+- font-style：定义字体的样式，通常为 normal 或 italic。
+- 
+在使用 @font-face 规则时，需要考虑以下几点：
+
+1. 字体文件的大小应该尽可能小，以便减少加载时间。
+2. 尽可能提供多个不同格式的字体文件，以便在不同的浏览器和设备上使用最适合的格式。
+3. 在定义字体名称时，应该避免使用与系统默认字体名称相同的名称，以避免与系统默认字体发生冲突。
+4. 需要确保字体文件的版权问题，只使用拥有版权的字体文件。
+
+#### format 的作用是什么:
+
+在 @font-face 规则中，format 属性用于指定字体文件的格式，以便浏览器可以选择最适合的字体格式进行下载和显示。这是因为不同的浏览器支持不同的字体格式。
+
+以下是常见的几种字体文件格式及其对应的 MIME 类型和浏览器支持情况：
+
+- format('woff2')：Web Open Font Format 2.0，MIME 类型为 font/woff2，现代浏览器均支持。
+- format('woff')：Web Open Font Format，MIME 类型为 font/woff，现代浏览器均支持。
+- format('truetype')：TrueType 字体格式，MIME 类型为 font/truetype，现代浏览器和老旧浏览器均支持。
+- format('opentype')：OpenType 字体格式，MIME 类型为 font/opentype，现代浏览器和老旧浏览器均支持。
+- format('embedded-opentype')：Embedded OpenType 字体格式，MIME 类型为 application/vnd.ms-fontobject，主要用于 IE8 及以下版本的浏览器。
+
+通过指定多种字体文件格式和对应的 MIME 类型，浏览器可以自动选择最适合的字体格式进行下载和显示，从而提高页面加载速度和字体显示质量。
+
+
 # 理解 font-size 与 ex/em/rem 的关系
 
 font-size、ex、em 和 rem 都是用来设置 HTML 元素的文本大小的属性，它们之间有着一定的关系。
