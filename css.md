@@ -1,3 +1,40 @@
+# 你不知道的 clip-path、shape-outside 属性
+
+clip-path 属性指定一个剪切路径，可以将元素剪切成任何形状，例如圆形、三角形或自定义形状。clip-path 属性可以使用 SVG 路径或 CSS 函数定义剪切路径。
+
+例子：让一张图片呈现为圆形
+```
+<img src="example.jpg" alt="Example Image">
+```
+```
+img {
+  clip-path: circle(50%);
+}
+```
+这里，circle() 函数将图片剪切为圆形，半径为 50%，即图片的宽度和高度的一半。
+
+shape-outside 属性指定一个形状，可以使得文本或其他元素避开指定形状的区域。该属性可以使用 CSS 函数或 SVG 路径来定义形状。
+
+例子：让一段文本绕着一个形状排列
+```
+<div class="shape"></div>
+```
+```
+.shape {
+  float: left;
+  width: 200px;
+  height: 100px;
+  shape-outside: rectangle(0, 0, 200px, 100px);
+}
+
+p {
+  margin: 0;
+}
+```
+这里，shape-outside 属性使用 rectangle() 函数指定一个矩形形状，并且 float 属性将矩形浮动在左侧。p 元素的 margin 设置为 0，以防止文本与矩形之间出现空白间隔。
+
+使用 clip-path 和 shape-outside 属性可以创建出各种有趣的效果，例如让文本环绕在图片周围或者创建出复杂的形状。然而，这些属性的浏览器支持度并不是非常好，需要仔细考虑兼容性和降级方案。
+
 # 真正了解 @font-face 的规则
 
 @font-face 是一个 CSS 规则，它允许开发人员在网站上使用自定义字体。使用 @font-face 规则可以将自定义字体文件（通常是 .woff 或 .woff2 格式的字体文件）嵌入网页，使网页能够在用户的计算机上显示自定义字体，而不必依赖于用户计算机上已安装的字体。
