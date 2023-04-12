@@ -1,3 +1,67 @@
+# 奇妙的 CSS 遮罩 mask 属性
+
+mask 属性用于创建遮罩效果，可以将一个元素遮罩成任何形状，例如圆形、三角形、文本或自定义形状。mask 属性的使用方法与 clip-path 和 shape-outside 相似，可以使用 SVG 路径或 CSS 函数定义遮罩形状。与 clip-path 和 shape-outside 不同的是，mask 属性还可以使用图像或 SVG 元素作为遮罩，这使得我们可以创建出更加复杂的遮罩效果。
+
+例子：
+```
+<div class="mask-example"></div>
+```
+```
+/* 使用渐变作为遮罩: 这里渐变从上到下，逐渐从透明变成黑色，从而形成一个向下渐变的遮罩效果。 */
+.mask-example {
+  width: 200px;
+  height: 200px;
+  background-image: linear-gradient(to bottom, transparent, black);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black);
+  mask-image: linear-gradient(to bottom, transparent, black);
+}
+
+/* 使用 SVG 路径作为遮罩: 这里 mask.svg 是一个 SVG 文件，定义了一个自定义的形状。可以使用 mask.svg#id 指定 SVG 文件中的特定 ID */
+.mask-example {
+  width: 200px;
+  height: 200px;
+  -webkit-mask-image: url(mask.svg);
+  mask-image: url(mask.svg);
+}
+
+/* 使用图像作为遮罩: 这里 mask.png 是一个 PNG 图像文件，它的颜色和透明度值将决定遮罩效果。图像中的非透明区域将显示元素的内容，而透明区域则将隐藏元素的内容 */
+.mask-example {
+  width: 200px;
+  height: 200px;
+  background-image: url(image.jpg);
+  -webkit-mask-image: url(mask.png);
+  mask-image: url(mask.png);
+}
+```
+
+需要注意的是，mask 属性的浏览器支持度并不是非常好，需要仔细考虑兼容性和降级方案。
+
+两种降级替代方案：
+
+1. 使用 clip-path 或 shape-outside 替代。这两个属性也可以用来创建不同形状的遮罩效果，虽然不如 mask 属性灵活，但兼容性更好，可以在不支持 mask 属性的浏览器上显示相似的效果。
+
+2. 使用图片作为背景。如果需要显示特定形状的元素，可以将形状保存为图像，并将其作为背景图片显示在元素上。虽然这种方法不如 mask 属性灵活，但它具有很好的兼容性，适用于所有浏览器。
+
+代码：
+```
+/* 使用 clip-path 作为遮罩 */
+.mask-example {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+  -webkit-clip-path: circle(50% at 50%);
+  clip-path: circle(50% at 50%);
+}
+
+/* 使用图片作为背景 */
+.mask-example {
+  width: 200px;
+  height: 200px;
+  background-image: url(shape.png);
+  background-size: cover;
+}
+```
+
 # 你不知道的 clip-path、shape-outside 属性
 
 clip-path 属性指定一个剪切路径，可以将元素剪切成任何形状，例如圆形、三角形或自定义形状。clip-path 属性可以使用 SVG 路径或 CSS 函数定义剪切路径。
