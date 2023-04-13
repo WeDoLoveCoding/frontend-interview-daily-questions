@@ -1,3 +1,24 @@
+# 新特性 @property 的解读
+
+在 CSS 中，@property 是一个新的特性，可以用来创建 CSS 属性（property）。这个特性目前处于实验性阶段，主要是为了方便创建自定义的 CSS 属性。
+```
+@property --primary-color {
+  syntax: '<color>';
+  initial-value: black;
+  inherits: false;
+}
+
+.button {
+  background-color: var(--primary-color);
+  color: white;
+}
+```
+在这个示例中，我们使用 @property 创建了一个自定义属性 --primary-color，它的值是颜色值（<color>）。我们还指定了它的初始值为 black，并且不会被继承。
+
+在 .button 样式规则中，我们使用了 var() 函数引用这个自定义属性作为 background-color 属性的值。由于这个自定义属性是可重复使用的，我们可以在其他地方引用它，而不需要写出具体的颜色值。
+
+需要注意的是，@property 只是定义了一个自定义属性，它并不会对页面的布局和样式产生直接的影响。因此，在使用 @property 的时候，需要考虑它的实际用途，以及如何将它与其他 CSS 特性结合使用。同时，需要注意浏览器的兼容性，目前还有一些浏览器不支持 @property 特性。
+
 # 奇妙的 CSS 遮罩 mask 属性
 
 mask 属性用于创建遮罩效果，可以将一个元素遮罩成任何形状，例如圆形、三角形、文本或自定义形状。mask 属性的使用方法与 clip-path 和 shape-outside 相似，可以使用 SVG 路径或 CSS 函数定义遮罩形状。与 clip-path 和 shape-outside 不同的是，mask 属性还可以使用图像或 SVG 元素作为遮罩，这使得我们可以创建出更加复杂的遮罩效果。
