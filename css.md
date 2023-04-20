@@ -1,3 +1,42 @@
+# 使用 box-shadow / 渐变实现内切角 
+
+- box-shadow
+
+要使用 box-shadow 属性来实现内切角，可以按照以下步骤操作：
+
+1.创建一个带有内切角的元素。
+
+2.使用 box-shadow 属性来模拟内切角的效果。可以通过在 box-shadow 中使用 inset 关键字来创建一个内阴影。接下来，需要使用偏移量、模糊半径和扩展半径来定义阴影的大小和位置。要实现内切角效果，需要在第一个阴影中使用负的水平和垂直偏移量，并使用正的扩展半径来确保阴影完全覆盖内切角。
+
+```
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: #f00;
+  box-shadow: -20px 20px 0 20px #fff inset;
+}
+```
+
+- 渐变
+
+要使用渐变来实现内切角，可以按照以下步骤操作：
+
+1.创建一个带有内切角的元素。
+
+2.使用渐变来在内切角处添加渐变效果。可以使用 linear-gradient 或 radial-gradient，具体取决于您希望实现的效果。通过在渐变中使用与元素背景色相同的颜色，可以创建一个平滑的过渡效果。
+
+3.使用 clip-path 属性将元素剪裁成所需的形状。可以使用 polygon() 函数来创建一个多边形形状，该函数需要提供每个顶点的 x 和 y 坐标。
+
+```
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: #f00;
+  background-image: linear-gradient(to bottom right, transparent 0%, transparent 50%, #fff 50%, #fff 100%);
+  clip-path: polygon(0 0, 180px 0, 200px 20px, 200px 180px, 180px 200px, 0 200px, 0 0);
+}
+```
+
 # 新特性 @property 的解读
 
 在 CSS 中，@property 是一个新的特性，可以用来创建 CSS 属性（property）。这个特性目前处于实验性阶段，主要是为了方便创建自定义的 CSS 属性。
