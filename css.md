@@ -1,3 +1,20 @@
+# 使用 box-shadow 实现霓虹氖灯文字效果
+
+```
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: 0 0 20px #fff,
+              0 0 30px #fff,
+              0 0 40px #fff,
+              0 0 70px #ff00de,
+              0 0 80px #ff00de,
+              0 0 100px #ff00de,
+              0 0 150px #ff00de;
+}
+```
+
 # 使用阴影实现文字的 3D 氖灯效果
 
 可以使用文本阴影属性来实现:
