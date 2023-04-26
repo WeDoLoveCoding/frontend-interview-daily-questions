@@ -1,3 +1,91 @@
+# 使用 div 标签实现抖音 LOGO
+
+html 代码如下：
+```
+<div class="logo-douyin">
+  <div class="logo"></div>
+  <div class="logo log-red"></div>
+</div>
+```
+css 代码如下：
+```
+.logo-douyin {
+  position: relative;
+  width: 200px;
+  padding: 100px;
+  margin: 100px auto;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 47px;
+  height: 218px;
+  z-index: 1;
+  background: #24f6f0;
+  mix-blend-mode: lighten;
+}
+.logo::after {
+  content: '';
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border: 40px solid #24f6f0;
+  border-top: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-left: 40px solid transparent;
+  top: -110px;
+  right: -183px;
+  border-radius: 100%;
+  transform: rotate(45deg);
+  z-index: -10;
+}
+.logo::before {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 47px solid #24f6f0;
+  border-top: 47px solid transparent;
+  border-radius: 50%;
+  top: 121px;
+  left: -147px;
+  transform: rotate(45deg);
+}
+
+.logo-red {
+  left: 10px;
+  top: 10px;
+  background: #fe2d52;
+  z-index: 100;
+  animation: move-to-mix-blend 6s infinite;
+}
+.logo-red::before {
+  border: 47px solid #fe2d52;
+  border-top: 47px solid transparent;
+}
+.logo-red::after {
+  border: 40px solid #fe2d52;
+  border-right: 40px solid transparent;
+  border-top: 40px solid transparent;
+  border-left: 40px solid transparent;
+}
+
+@keyframes move-to-mix-blend {
+  0% {
+    transform: translate(200px);
+  }
+  50% {
+    transform: translate(0px);
+  }
+  100% {
+    transform: translate(0px);
+  }
+}
+```
+摘自： https://juejin.cn/post/7016611927111499813
+
 # 使用 box-shadow 实现霓虹氖灯文字效果
 
 ```
