@@ -4,7 +4,7 @@ html 代码如下：
 ```
 <div class="logo-douyin">
   <div class="logo"></div>
-  <div class="logo log-red"></div>
+  <div class="logo logo-red"></div>
 </div>
 ```
 css 代码如下：
