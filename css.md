@@ -1,4 +1,44 @@
-# 使用 inset shadow 实现 Edge LOGO 
+# 使用 inset shadow 实现 Google LOGO 
+
+html 代码如下：
+```
+  <div class="logo">
+      <span class="g">G</span>
+      <span class="o1">o</span>
+      <span class="o2">o</span>
+      <span class="g">g</span>
+      <span class="l">l</span>
+      <span class="e">e</span>
+    </div>
+```
+css 代码如下： 
+```
+.logo {
+  font-size: 80px;
+  letter-spacing: -2px；
+  font-weight: 700;
+  font-family: Ebrima,Arial,Helvetica, Sans-Serif;
+}
+
+span.g{
+  color: rgb(66,133,244);
+}
+span.o1{
+  color: rgb(234,67,53);
+}
+span.o2{
+  color: rgb(251,188,5);
+}
+span.l{
+  color: rgb(52,168,83);
+}
+span.e{
+  color: rgb(234,67,53);
+  display:inline-block;   /*设置元素旋转*/
+  transform:rotate(-15deg);
+
+}
+```
 
 # 使用 div 标签实现抖音 LOGO
 
