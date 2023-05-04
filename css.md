@@ -1,4 +1,4 @@
-# 使用 inset shadow 实现 Google LOGO 
+# 实现 Google LOGO 
 
 html 代码如下：
 ```
