@@ -1,3 +1,35 @@
+# 使用 background-attachment 实现毛玻璃效果 
+
+可以通过设置一个带有背景图片的元素，并将其覆盖在页面的其他内容上面。使用 position: fixed 和 top: 0 等属性来实现这一点。
+
+html 代码如下：
+```
+<div>
+  <h2>
+    Start editing to see some magic happen!
+  </h2>
+  <div class="bg"></div>
+</div>
+```
+
+css 代码如下：
+```
+...
+
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("https://xx.com/bg.png");
+  background-size: cover;
+  filter: blur(10px); // 使用 filter 属性来创建毛玻璃效果
+  background-attachment: fixed; // 由于元素设置了 position: fixed 和 z-index: -1，它会出现在页面的顶部并位于其他内容的后面。可以使用 background-attachment 属性来指定背景图像的滚动行为。通过将其设置为 fixed，可以使背景图像保持固定，不随页面滚动而移动。
+}
+```
+
 # 实现 Google LOGO 
 
 html 代码如下：
