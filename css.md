@@ -1,3 +1,5 @@
+# 使用 渐变实现 TV 噪音动画
+
 # 使用 background-attachment 实现毛玻璃效果 
 
 可以通过设置一个带有背景图片的元素，并将其覆盖在页面的其他内容上面。使用 position: fixed 和 top: 0 等属性来实现这一点。
