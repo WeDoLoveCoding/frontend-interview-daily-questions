@@ -1,3 +1,41 @@
+# 使用 css 线性渐变实现箭头符号
+html 代码如下：
+```
+<div className="arrow"></div>
+```
+css 代码如下：
+```
+.arrow {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.arrow::before,
+.arrow::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  height: 2px;
+  background-color: #000;
+}
+
+.arrow::before {
+  left: 0;
+  transform-origin: top right;
+  transform: rotate(45deg);
+  background: linear-gradient(to right, red 0%, transparent 100%);
+}
+
+.arrow::after {
+  right: 0;
+  transform-origin: top left;
+  transform: rotate(-45deg);
+  background: linear-gradient(to left, green 0%, transparent 100%);
+}
+```
+
 # 使用 渐变实现 TV 噪音动画
 
 # 使用 background-attachment 实现毛玻璃效果 
