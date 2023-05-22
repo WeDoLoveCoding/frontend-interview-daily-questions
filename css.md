@@ -1,3 +1,27 @@
+# 使用 线性渐变 实现线条 border 效果
+html 代码如下：
+```
+<div className="border-effect"></div>
+```
+css 代码如下：
+```
+.border-effect {
+  width: 200px;
+  height: 200px;
+  border: 10px solid;
+  border-image: linear-gradient(
+    to right,
+    #000 0%,
+    orange 30%,
+    #000 50%,
+    yellow 80%,
+    blue 90%,
+    green 100%
+  );
+  border-image-slice: 1;
+}
+```
+
 # 使用 css 线性渐变实现箭头符号
 html 代码如下：
 ```
