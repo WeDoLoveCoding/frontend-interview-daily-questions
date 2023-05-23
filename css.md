@@ -1,7 +1,38 @@
+# 使用 线性渐变实现顶部滚动进度条
+html 代码如下：
+```
+<div class="box">Start editing to see some magic happen!Start editing to see some magic happen!Start editing to see some magic happen!...</div>
+```
+css 代码如下：
+```
+.box {
+  position: relative;
+  padding: 50px;
+  font-size: 24px;
+  line-height: 30px;
+  background-image: linear-gradient(to right top, green 50%, #eee 50%);
+  background-repeat: no-repeat;
+  background-size: 100% calc(100% - 100vh + 5px);
+  z-index: 1;
+}
+
+.box::after {
+  content: "";
+  position: fixed;
+  top: 5px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  z-index: -1;
+}
+```
+当内容出现滚动条后，可以看到顶部出现滚动条。
+
 # 使用 线性渐变 实现线条 border 效果
 html 代码如下：
 ```
-<div className="border-effect"></div>
+<div class="border-effect"></div>
 ```
 css 代码如下：
 ```
