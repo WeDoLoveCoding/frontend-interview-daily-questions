@@ -1,4 +1,25 @@
 # 使用css 径向渐变实现舞台灯光聚焦效果
+html 代码如下：
+```
+<div class="light-container"></div>
+```
+
+css 代码如下：
+```
+.light-container {
+  width: 200px;
+  height: 200px;
+  background-color: black;
+  background-image: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.05) 70%,
+    rgba(255, 255, 255, 0.01) 80%
+  );
+  background-size: 50% 50%;
+  background-position: center;
+}
+```
 
 # 使用 线性渐变实现顶部滚动进度条
 html 代码如下：
