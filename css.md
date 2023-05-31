@@ -1,4 +1,110 @@
 # 用多重背景单标签实现气泡按钮点击效果
+html 代码如下：
+```
+<button class="btn animate">点我</button>
+```
+
+css 代码如下：
+```
+/*定位,设为行内块级元素好居中设置宽高,去除边框,设置圆角,背景颜色,外边距,阴影,鼠标样式,字体样式,*/
+			.btn{
+				position: relative;
+				display: inline-block;
+				width: 150px;
+				height: 50px;
+				border: none;
+				border-radius: 10px;
+				background-color: crimson;
+				margin-top: 100px;
+				box-shadow: 0 0 5px #FF3DE8;
+				cursor: pointer;
+				font-size:16px;
+				color: #fff;
+				font-family: "微软雅黑";
+			}
+			/*定义上面动画-改变背景的定位实现气泡的移动，最后大小为0实现气泡消失*/
+			@keyframes btn_top {
+				0% {
+					background-position: 5% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+				}
+				50% {
+					background-position: 0% 80%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+				}
+				100% {
+					background-position: 0% 70%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+					background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+				}
+			}
+			/*定义下面动画-改变背景的定位实现气泡的移动，最后大小为0实现气泡消失*/
+			@keyframes btn_botton {
+				0% {
+					background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+				}
+				50% {
+					background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+				}
+				100% {
+					background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+					background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+				}
+			}
+			/*统一设置按钮伪元素的样式-定位，宽高，背景不重复，隐藏*/
+			.btn:before,.btn:after{
+				content: "";
+				width: 140%;
+				height: 100%;
+				position: absolute;
+				left: -20%;
+				background-repeat: no-repeat;
+				display: none;
+			}
+			/*设置按钮上面伪元素的定位,背景气泡样式,大小
+			 * ===radial-gradient是设置径向渐变（辐射渐变）
+			 * ===circle圆
+			 * ===transparent透明
+			 * 用逗号隔开画多个圆圈气泡*/
+			.btn:before{
+				top: -75%;
+				background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), 
+				radial-gradient(circle, #ff0081 20%, transparent 20%), 
+				radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), 
+				radial-gradient(circle, #ff0081 20%, transparent 20%), 
+				radial-gradient(circle, #ff0081 20%, transparent 20%), 
+				radial-gradient(circle, #ff0081 20%, transparent 20%), 
+				radial-gradient(circle, #ff0081 20%, transparent 20%);
+				background-size: 10% 10%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+				
+			}
+			/*设置按钮下面伪元素的定位,背景气泡样式,大小*/
+			.btn:after{
+				bottom: -75%;
+				background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), 
+				radial-gradient(circle, #ff0081 20%, transparent 20%), 
+				radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), 
+				radial-gradient(circle, #ff0081 20%, transparent 20%), 
+				radial-gradient(circle, #ff0081 20%, transparent 20%), 
+				radial-gradient(circle, #ff0081 20%, transparent 20%), 
+				radial-gradient(circle, #ff0081 20%, transparent 20%);
+				background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+				
+			}
+			/*设置当按钮处于活动状态时的样式-缩小,改变背景颜色,边框阴影*/
+			.btn:active {
+				transform: scale(0.9);
+				background-color: #e60074;
+				box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+			}
+			/*设置按钮按下时上面伪元素的样式-显示,执行一次动画*/
+			.btn.animate::before{
+				display: block;
+				animation: btn_top 1s 1 forwards;
+			}
+			/*设置按钮按下时下面伪元素的样式-显示,执行一次动画*/
+			.btn.animate::after{
+				display: block;
+				animation: btn_botton 1s 1 forwards;
+			}
+```
 
 # 使用css 径向渐变实现舞台灯光聚焦效果
 html 代码如下：
