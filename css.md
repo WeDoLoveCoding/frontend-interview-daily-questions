@@ -1,4 +1,5 @@
 # 使用径向渐变实现优惠券波浪造型
+[css优惠券、卡券样式绘制（带阴影、锯齿）](https://blog.csdn.net/B_rabbit_d/article/details/119645778)
 
 # 用多重背景单标签实现气泡按钮点击效果
 html 代码如下：
