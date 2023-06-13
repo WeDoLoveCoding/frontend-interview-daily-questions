@@ -1,5 +1,13 @@
 # 谈谈 @charset、 @import、@document 
 
+@charset：用于定义文档所采用的字符集，一般出现在 CSS 样式表的开头。例如：@charset "UTF-8"; 表示文档采用 UTF-8 字符集。
+
+@import：用于导入其他样式表中的样式。一般出现在 CSS 样式表的开头，语法如下：@import url("other.css"); 表示导入名称为 "other.css" 的样式表。
+
+@document：根据文档的 URL 选择应用样式。例如： @document url("https://example.com/") { body {background-color: yellow;} } 表示只针对 URL 为 "https://example.com/" 的页面应用该样式。
+
+这三个 CSS 属性都是用来辅助实现更加灵活的样式控制，可以实现文档的特定需求，例如解决字符集问题、拆分样式表、针对特定 URL 应用特定样式等等。
+
 # 使用径向渐变实现优惠券波浪造型
 [css优惠券、卡券样式绘制（带阴影、锯齿）](https://blog.csdn.net/B_rabbit_d/article/details/119645778)
 
