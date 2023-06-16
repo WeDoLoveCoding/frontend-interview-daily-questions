@@ -1,3 +1,62 @@
+# CSS 实现文字输入效果
+
+html 代码：
+```
+<div class="typing">
+    <div class="typing__dot"></div>
+    <div class="typing__dot"></div>
+    <div class="typing__dot"></div>
+  </div>
+```
+
+css 代码：
+```
+.typing {
+  width: 5em;
+  height: 2em;
+  position: relative;
+  padding: 10px;
+  margin-left: 5px;
+  background: #e6e6e6;
+  border-radius: 20px;
+}
+
+.typing__dot {
+  float: left;
+  width: 8px;
+  height: 8px;
+  margin: 0 4px;
+  background: #8d8c91;
+  border-radius: 50%;
+  opacity: 0;
+  animation: loadingFade 1s infinite;
+}
+
+.typing__dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing__dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing__dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes loadingFade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+```
+
 # 谈谈 @charset、 @import、@document 
 
 @charset：用于定义文档所采用的字符集，一般出现在 CSS 样式表的开头。例如：@charset "UTF-8"; 表示文档采用 UTF-8 字符集。
